@@ -1,106 +1,47 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import Logo from './components/Logo'
+import SearchBar from './components/SearchBar'
+
 import * as headerActions from './headerActions'
 
 import {
   HeaderWrapper,
-  HotSearch,
-  Logo,
-  Nav,
-  NavSearch,
-  SearchWrapper,
-  SearchInfoItem,
-  SearchInfoList,
-  SearchInfoSwitch,
-  SearchInfoTitle
+  Nav
 } from './headerStyle'
 
 class Header extends Component {
-  getCurrentPageItems = () => {
+  render () {
     const {
-      hotSearchList,
       currentPage,
-    } = this.props
-
-    const pageList = []
-
-    if (hotSearchList.length) {
-      for (let i = (currentPage - 1) * 7; i < currentPage * 7; i++) {
-        pageList.push(
-          <SearchInfoItem key={hotSearchList[i]}>
-            {hotSearchList[i]}
-          </SearchInfoItem>
-        )
-      }
-    }
-
-    return pageList
-  }
-
-  getListArea = () => {
-    const {
       isFocused,
       isHotSearchMouseIn,
       handleChangePage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
-      currentPage,
-      totalPage
-    } = this.props
-
-    if (isFocused || isHotSearchMouseIn) {
-      return (
-        <HotSearch
-          onMouseEnter={handleHotSearchMouseEnter}
-          onMouseLeave={handleHotSearchMouseLeave}>
-
-          <SearchInfoTitle>
-            Hot Searches
-            <SearchInfoSwitch onClick={() => handleChangePage(currentPage, totalPage, this.spinIcon)}>
-              <i className="iconfont spin" ref={(icon) => {this.spinIcon = icon}}>
-                &#xe851;
-              </i>
-              Change
-            </SearchInfoSwitch>
-          </SearchInfoTitle>
-
-          <SearchInfoList>
-            {this.getCurrentPageItems()}
-          </SearchInfoList>
-        </HotSearch>
-      )
-    } else {
-      return null
-    }
-  }
-
-  render () {
-    const {
-      isFocused,
       handleSearchFocus,
       handleSearchBlur,
-      hotSearchList
+      hotSearchList,
+      totalPage
     } = this.props
 
     return (
       <HeaderWrapper>
         <Logo />
         <Nav>
-          <SearchWrapper>
-            <NavSearch
-              className={isFocused ? 'focused' : ''}
-              onFocus={() => handleSearchFocus(hotSearchList)}
-              onBlur={handleSearchBlur}
-              placeholder='Search...'
-            />
-
-            <i className={isFocused ? 'focused iconfont zoom' : 'iconfont zoom'}>
-              &#xe60c;
-            </i>
-
-            {this.getListArea()}
-          </SearchWrapper>
+          <SearchBar
+            currentPage={currentPage}
+            isFocused={isFocused}
+            isHotSearchMouseIn={isHotSearchMouseIn}
+            handleChangePage={handleChangePage}
+            handleHotSearchMouseEnter={handleHotSearchMouseEnter}
+            handleHotSearchMouseLeave={handleHotSearchMouseLeave}
+            handleSearchFocus={handleSearchFocus}
+            handleSearchBlur={handleSearchBlur}
+            hotSearchList={hotSearchList}
+            totalPage={totalPage}
+          />
         </Nav>
       </HeaderWrapper>
     )
