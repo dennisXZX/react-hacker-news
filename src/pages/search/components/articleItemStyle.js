@@ -28,6 +28,10 @@ export const MetaDataItem = styled.span`
   border-right: 1px solid dimgray;
   padding: 0 10px;
   
+  &:first-child {
+    padding-left: 0;
+  }
+  
   &:last-child {
     border: 0;
   }

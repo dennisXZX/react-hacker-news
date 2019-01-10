@@ -17,6 +17,12 @@ export const SearchWrapper = styled.div`
     color: #FF742B;
   }
   
+  .zoom:hover {
+    color: #ff6607;
+    font-size: 1.9rem;
+    background: #f0f0f0;
+  }
+  
   @media (min-width: 768px) {
     .zoom {
       transition: all 0.4s ease-out;
