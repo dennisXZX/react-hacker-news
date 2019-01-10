@@ -1,0 +1,8 @@
+{
+  "success": true,
+  "hotSearchList": [
+    "Vue", "PHP", "Flutter", "Docker", "React", "Android", "Angular",
+    "React", "RxJS", "Redux", "Linux", "Java", "Python", "Golang",
+    "AWS", "IOS", "Ruby", "AJAX", "Devops", "MongoDB", "MySQL"
+  ]
+}
