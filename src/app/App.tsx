@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 
 import GlobalStyle from '../css/GlobalStyle'
 import Header from '../common/header/Header'
-import ResultPage from '../pages/result/ResultPage'
+import SearchPage from '../pages/search/SearchPage'
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <GlobalStyle />
         <Header />
-        <ResultPage />
+        <SearchPage />
       </Provider>
     );
   }
