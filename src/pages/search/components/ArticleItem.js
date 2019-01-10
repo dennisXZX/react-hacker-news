@@ -25,7 +25,7 @@ const ArticleItem = (props) => {
         <MetaDataItem>{author}</MetaDataItem>
         <MetaDataItem>{created_at_i}</MetaDataItem>
         <MetaDataItem>{num_comments}</MetaDataItem>
-        <MetaDataItem>{url}</MetaDataItem>
+        <MetaDataItem className="desktop-only">{url}</MetaDataItem>
       </MetaDataWrapper>
     </ArticleItemWrapper>
   )

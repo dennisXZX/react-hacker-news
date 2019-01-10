@@ -11,6 +11,16 @@ export const Title = styled.div`
 
 export const MetaDataWrapper = styled.div`
   color: dimgray;
+  
+  .desktop-only {
+    display: none;
+  }
+  
+  @media (min-width: 1140px) {
+    .desktop-only {
+      display: inline-block;
+    }
+  }
 `
 
 export const MetaDataItem = styled.span`
@@ -21,5 +31,15 @@ export const MetaDataItem = styled.span`
   &:last-child {
     border: 0;
   }
+  
+  :nth-last-child(2) {
+    border: 0;
+  }
+  
+  @media (min-width: 1140px) {
+    :nth-last-child(2) {
+      border-right: 1px solid dimgray;
+    }
+  }  
 `
 
