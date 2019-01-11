@@ -1,0 +1,72 @@
+import { createGlobalStyle } from 'styled-components'
+
+const ReactPaginationStyle = createGlobalStyle`
+  .paginationContainer {
+    display: flex;
+  }
+  
+  .paginationPage {
+    margin: 3px;
+    border: 1px solid #9d9d9d;
+    outline: none;
+    color: #9d9d9d;
+    padding: 5px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    
+    &:hover {
+      border: 1px solid #ffb290;
+      color: #ffb290;
+    }
+    
+    a {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: inline-block;
+      text-align: center;
+      line-height: 25px;
+      outline: none
+    }
+  }
+  
+  .paginationPrevious, .paginationNext {
+    border: 1px solid #9d9d9d;
+    outline: none;
+    padding: 5px 10px;
+    color: #9d9d9d;
+    border-radius: 3px;
+    height: 22px;
+    line-height: 22px;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+    
+    &:hover {
+      border: 1px solid #ffb290;
+      color: #ffb290;
+    }
+    
+    a {
+      outline: none;
+    }
+  }
+  
+  .paginationPrevious {
+    margin-right: 15px;
+  }
+  
+  .paginationNext {
+    margin-left: 15px;
+  }
+  
+  .paginationActive {
+    border: 1px solid #FF742B;
+    color: #FF742B;
+  }
+`
+
+export default ReactPaginationStyle

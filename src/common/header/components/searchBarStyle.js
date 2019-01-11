@@ -7,7 +7,7 @@ export const SearchWrapper = styled.div`
   .zoom {
     cursor: pointer;
     position: absolute;
-    right: 5px;
+    right: 8px;
     bottom: 8px;
     width: 30px;
     line-height: 30px;
@@ -18,8 +18,7 @@ export const SearchWrapper = styled.div`
   }
   
   .zoom:hover {
-    color: #ff6607;
-    font-size: 1.9rem;
+    font-weight: bold;
     background: #f0f0f0;
   }
   
@@ -42,7 +41,7 @@ export const NavSearch = styled.input`
   padding-left: 20px;
   box-sizing: border-box;
   outline: none;
-  border-radius: 19px;
+  border-radius: 32px;
   background: #fff;
   border: 1px solid #FF742B;
   font-size: 1.1rem;
