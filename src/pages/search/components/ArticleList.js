@@ -7,11 +7,11 @@ import {
 } from './articleListStyle'
 
 const ArticleList = (props) => {
-  const { hitArticleList } = props
+  const { articleList } = props
 
   return (
     <ArticleListWrapper>
-      {hitArticleList.map(article => (
+      {articleList.map(article => (
         <ArticleItem
           key={article.objectID}
           article={article}

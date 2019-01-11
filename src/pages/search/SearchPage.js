@@ -15,12 +15,12 @@ import {
 
 class SearchPage extends Component {
   render () {
-    const { hitArticleList } = this.props
+    const { articleList } = this.props
 
     return (
       <ResultWrapper>
         <ArticleList
-          hitArticleList={hitArticleList}
+          articleList={articleList}
         />
       </ResultWrapper>
     )
@@ -33,7 +33,7 @@ class SearchPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    hitArticleList: state.searchPage.hitArticleList
+    articleList: state.searchPage.articleList
   }
 }
 

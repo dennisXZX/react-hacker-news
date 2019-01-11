@@ -1,21 +1,27 @@
 import {
-  UPDATE_HIT_ARTICLE_LIST
+  UPDATE_ARTICLE_LIST
 } from './searchPageActions'
 
 const defaultState = {
-  hitArticleList: []
+  articleList: [],
+  totalPage: 0,
+  articlePerPage: 0
 }
 
 const _updateHitArticleList = (state, action) => {
+  const { articleList, articlePerPage, totalPage } = action
+
   return {
     ...state,
-    hitArticleList: action.hitArticleList
+    articleList,
+    articlePerPage,
+    totalPage
   }
 }
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case UPDATE_HIT_ARTICLE_LIST:
+    case UPDATE_ARTICLE_LIST:
       return _updateHitArticleList(state, action)
     default:
       return state
