@@ -9,9 +9,3 @@ export const ResultWrapper = styled.div`
     margin: 0 auto;
   }  
 `
-
-export const PaginationWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-`

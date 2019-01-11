@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import ReactPaginate from 'react-paginate'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import ArticleList from './components/ArticleList'
+import Pagination from './components/Pagination'
 
 import {
   loadInitialPageData
 } from './searchPageActions'
 
 import {
-  ResultWrapper,
-  PaginationWrapper
+  ResultWrapper
 } from './searchPageStyle'
 
 
@@ -28,19 +27,9 @@ class SearchPage extends Component {
         <ArticleList
           articleList={articleList}
         />
-        <PaginationWrapper>
-          <ReactPaginate
-            activeClassName="paginationActive"
-            pageCount={30}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={1}
-            containerClassName="paginationContainer"
-            pageClassName="paginationPage"
-            previousClassName="paginationPrevious"
-            nextClassName="paginationNext"
-            onPageChange={this.handlePageClick}
-          />
-        </PaginationWrapper>
+        <Pagination
+          handlePageClick={this.handlePageClick}
+        />
       </ResultWrapper>
     )
   }

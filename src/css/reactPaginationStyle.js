@@ -10,10 +10,11 @@ const ReactPaginationStyle = createGlobalStyle`
     border: 1px solid #9d9d9d;
     outline: none;
     color: #9d9d9d;
-    padding: 5px 20px;
+    padding: 5px 15px;
     border-radius: 3px;
     cursor: pointer;
     position: relative;
+    font-size: 0.8rem;
     
     &:hover {
       border: 1px solid #ffb290;
@@ -33,34 +34,52 @@ const ReactPaginationStyle = createGlobalStyle`
     }
   }
   
-  .paginationPrevious, .paginationNext {
-    border: 1px solid #9d9d9d;
-    outline: none;
-    padding: 5px 10px;
-    color: #9d9d9d;
-    border-radius: 3px;
-    height: 22px;
-    line-height: 22px;
-    width: 60px;
-    text-align: center;
+  .paginationBreak {
+    margin: 0 10px;
     cursor: pointer;
-    
-    &:hover {
-      border: 1px solid #ffb290;
-      color: #ffb290;
-    }
     
     a {
       outline: none;
     }
   }
   
+  .paginationPrevious, .paginationNext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #9d9d9d;
+    outline: none;
+    padding: 5px;
+    color: #9d9d9d;
+    border-radius: 3px;
+    height: 22px;
+    line-height: 22px;
+    width: 55px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    
+    &:hover {
+      border: 1px solid #ffb290;
+      color: #ffb290;
+    }
+  }
+  
   .paginationPrevious {
     margin-right: 15px;
+    
+    a {
+      padding: 6px 8px;
+      outline: none;
+    }
   }
   
   .paginationNext {
     margin-left: 15px;
+    
+    a {
+      padding: 6px 18px;
+      outline: none;
+    }    
   }
   
   .paginationActive {
