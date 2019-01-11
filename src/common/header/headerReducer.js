@@ -4,7 +4,8 @@ import {
   GET_HOT_SEARCH_LIST,
   HOT_SEARCH_MOUSE_ENTER,
   HOT_SEARCH_MOUSE_LEAVE,
-  CHANGE_PAGE
+  CHANGE_PAGE,
+  CHANGE_SEARCH
 } from './headerActions'
 
 const defaultState = {
@@ -59,6 +60,13 @@ const _changePage = (state, action) => {
   }
 }
 
+const _changeSearch = (state, action) => {
+  return {
+    ...state,
+    currentSearch: action.newSearchWord
+  }
+}
+
 export default (state = defaultState, action) => {
   switch (action.type) {
     case SEARCH_FOCUS:
@@ -73,6 +81,8 @@ export default (state = defaultState, action) => {
       return _handleHotSearchMouseLeave(state, action)
     case CHANGE_PAGE:
       return _changePage(state, action)
+    case CHANGE_SEARCH:
+      return _changeSearch(state, action)
     default:
       return state
   }

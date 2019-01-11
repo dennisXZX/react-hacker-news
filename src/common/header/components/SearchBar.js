@@ -38,10 +38,11 @@ class SearchBar extends Component {
 
   render () {
     const {
+      currentSearch,
       isFocused,
       handleSearchFocus,
       handleSearchBlur,
-      handleArticleSearch,
+      handleSearchChange,
       hotSearchList
     } = this.props
 
@@ -51,8 +52,9 @@ class SearchBar extends Component {
           className={isFocused ? 'focused' : ''}
           onFocus={() => handleSearchFocus(hotSearchList)}
           onBlur={handleSearchBlur}
-          onChange={handleArticleSearch}
+          onChange={handleSearchChange}
           placeholder='Search...'
+          value={currentSearch}
         />
 
         <i className={isFocused ? 'focused iconfont zoom' : 'iconfont zoom'}>

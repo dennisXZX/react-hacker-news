@@ -6,6 +6,7 @@ export const GET_HOT_SEARCH_LIST = 'Header.GET_HOT_SEARCH_LIST'
 export const HOT_SEARCH_MOUSE_ENTER = 'Header.HOT_SEARCH_MOUSE_ENTER'
 export const HOT_SEARCH_MOUSE_LEAVE = 'Header.HOT_SEARCH_MOUSE_LEAVE'
 export const CHANGE_PAGE = 'Header.CHANGE_PAGE'
+export const CHANGE_SEARCH = 'Header.CHANGE_SEARCH'
 
 const _changeList = (hotSearchList) => ({
   type: GET_HOT_SEARCH_LIST,
@@ -46,6 +47,11 @@ const _getHotSearchList = () => (dispatch) => {
     })
 }
 
+const _changeSearch = (newSearchWord) => ({
+  type: CHANGE_SEARCH,
+  newSearchWord
+})
+
 export const handleSearchFocus = hotSearchList => dispatch => {
   (hotSearchList.length <= 0) && dispatch(_getHotSearchList())
 
@@ -76,6 +82,6 @@ export const handleChangePage = (currentPage, totalPage, spinIcon) => dispatch =
   }
 }
 
-export const handleArticleSearch = () => dispatch => {
-  console.log('typing')
+export const handleSearchChange = (event) => dispatch => {
+  dispatch(_changeSearch(event.target.value))
 }

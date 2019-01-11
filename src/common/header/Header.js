@@ -11,7 +11,7 @@ import {
   handleHotSearchMouseEnter,
   handleHotSearchMouseLeave,
   handleChangePage,
-  handleArticleSearch
+  handleSearchChange
 } from './headerActions'
 
 import {
@@ -23,6 +23,7 @@ class Header extends Component {
   render () {
     const {
       currentPage,
+      currentSearch,
       isFocused,
       isHotSearchMouseIn,
       handleChangePage,
@@ -30,7 +31,7 @@ class Header extends Component {
       handleHotSearchMouseLeave,
       handleSearchFocus,
       handleSearchBlur,
-      handleArticleSearch,
+      handleSearchChange,
       hotSearchList,
       totalPage
     } = this.props
@@ -41,6 +42,7 @@ class Header extends Component {
         <Nav>
           <SearchBar
             currentPage={currentPage}
+            currentSearch={currentSearch}
             isFocused={isFocused}
             isHotSearchMouseIn={isHotSearchMouseIn}
             handleChangePage={handleChangePage}
@@ -48,7 +50,7 @@ class Header extends Component {
             handleHotSearchMouseLeave={handleHotSearchMouseLeave}
             handleSearchFocus={handleSearchFocus}
             handleSearchBlur={handleSearchBlur}
-            handleArticleSearch={handleArticleSearch}
+            handleSearchChange={handleSearchChange}
             hotSearchList={hotSearchList}
             totalPage={totalPage}
           />
@@ -63,6 +65,7 @@ const mapStateToProps = (state) => {
     isFocused: state.header.isFocused,
     hotSearchList: state.header.hotSearchList,
     currentPage: state.header.currentPage,
+    currentSearch: state.header.currentSearch,
     totalPage: state.header.totalPage,
     isHotSearchMouseIn: state.header.isHotSearchMouseIn,
   }
@@ -70,12 +73,12 @@ const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => ({
   ...bindActionCreators({
-    handleSearchFocus,
-    handleSearchBlur,
+    handleChangePage,
     handleHotSearchMouseEnter,
     handleHotSearchMouseLeave,
-    handleChangePage,
-    handleArticleSearch
+    handleSearchBlur,
+    handleSearchFocus,
+    handleSearchChange
   }, dispatch)
 });
 
