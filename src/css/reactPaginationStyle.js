@@ -54,7 +54,7 @@ const ReactPaginationStyle = createGlobalStyle`
     border-radius: 3px;
     height: 22px;
     line-height: 22px;
-    width: 55px;
+    width: 15px;
     cursor: pointer;
     font-size: 0.8rem;
     
@@ -62,24 +62,19 @@ const ReactPaginationStyle = createGlobalStyle`
       border: 1px solid #ffb290;
       color: #ffb290;
     }
-  }
-  
-  .paginationPrevious {
-    margin-right: 15px;
     
     a {
       padding: 6px 8px;
       outline: none;
-    }
+    }    
+  }
+  
+  .paginationPrevious {
+    margin-right: 13px;
   }
   
   .paginationNext {
-    margin-left: 15px;
-    
-    a {
-      padding: 6px 18px;
-      outline: none;
-    }    
+    margin-left: 13px;
   }
   
   .paginationActive {

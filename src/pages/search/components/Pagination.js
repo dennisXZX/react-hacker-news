@@ -9,14 +9,16 @@ const Pagination = ({ handlePageClick }) => (
     <ReactPaginate
       activeClassName="paginationActive"
       breakClassName="paginationBreak"
+      containerClassName="paginationContainer"
+      marginPagesDisplayed={1}
+      nextClassName="paginationNext"
+      nextLabel=">"
+      onPageChange={handlePageClick}
       pageCount={30}
       pageRangeDisplayed={2}
-      marginPagesDisplayed={1}
-      containerClassName="paginationContainer"
       pageClassName="paginationPage"
       previousClassName="paginationPrevious"
-      nextClassName="paginationNext"
-      onPageChange={handlePageClick}
+      previousLabel="<"
     />
   </PaginationWrapper>
 )
