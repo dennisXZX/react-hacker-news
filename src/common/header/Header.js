@@ -10,7 +10,7 @@ import {
   handleSearchBlur,
   handleHotSearchMouseEnter,
   handleHotSearchMouseLeave,
-  handleChangePage,
+  handleChangeHotSearchPage,
   handleSearchChange
 } from './headerActions'
 
@@ -26,7 +26,7 @@ class Header extends Component {
       currentSearch,
       isFocused,
       isHotSearchMouseIn,
-      handleChangePage,
+      handleChangeHotSearchPage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
       handleSearchFocus,
@@ -45,7 +45,7 @@ class Header extends Component {
             currentSearch={currentSearch}
             isFocused={isFocused}
             isHotSearchMouseIn={isHotSearchMouseIn}
-            handleChangePage={handleChangePage}
+            handleChangeHotSearchPage={handleChangeHotSearchPage}
             handleHotSearchMouseEnter={handleHotSearchMouseEnter}
             handleHotSearchMouseLeave={handleHotSearchMouseLeave}
             handleSearchFocus={handleSearchFocus}
@@ -73,7 +73,7 @@ const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => ({
   ...bindActionCreators({
-    handleChangePage,
+    handleChangeHotSearchPage,
     handleHotSearchMouseEnter,
     handleHotSearchMouseLeave,
     handleSearchBlur,

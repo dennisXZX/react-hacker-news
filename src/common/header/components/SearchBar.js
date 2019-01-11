@@ -13,7 +13,7 @@ class SearchBar extends Component {
       currentPage,
       isFocused,
       isHotSearchMouseIn,
-      handleChangePage,
+      handleChangeHotSearchPage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
       hotSearchList,
@@ -25,7 +25,7 @@ class SearchBar extends Component {
         <HotSearchPanel
           handleHotSearchMouseEnter={handleHotSearchMouseEnter}
           handleHotSearchMouseLeave={handleHotSearchMouseLeave}
-          handleChangePage={handleChangePage}
+          handleChangeHotSearchPage={handleChangeHotSearchPage}
           currentPage={currentPage}
           totalPage={totalPage}
           hotSearchList={hotSearchList}

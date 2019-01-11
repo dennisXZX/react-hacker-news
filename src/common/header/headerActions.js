@@ -5,7 +5,7 @@ export const SEARCH_BLUR = 'Header.SEARCH_BLUR'
 export const GET_HOT_SEARCH_LIST = 'Header.GET_HOT_SEARCH_LIST'
 export const HOT_SEARCH_MOUSE_ENTER = 'Header.HOT_SEARCH_MOUSE_ENTER'
 export const HOT_SEARCH_MOUSE_LEAVE = 'Header.HOT_SEARCH_MOUSE_LEAVE'
-export const CHANGE_PAGE = 'Header.CHANGE_PAGE'
+export const HOT_SEARCH_CHANGE_PAGE = 'Header.HOT_SEARCH_CHANGE_PAGE'
 export const CHANGE_SEARCH = 'Header.CHANGE_SEARCH'
 
 const _changeList = (hotSearchList) => ({
@@ -30,8 +30,8 @@ const _hotSearchMouseLeave = () => ({
   type: HOT_SEARCH_MOUSE_LEAVE
 })
 
-const _changePage = (newCurrentPage) => ({
-  type: CHANGE_PAGE,
+const _changeHotSearchPage = (newCurrentPage) => ({
+  type: HOT_SEARCH_CHANGE_PAGE,
   newCurrentPage
 })
 
@@ -70,15 +70,15 @@ export const handleHotSearchMouseLeave = () => dispatch => {
   dispatch(_hotSearchMouseLeave())
 }
 
-export const handleChangePage = (currentPage, totalPage, spinIcon) => dispatch => {
+export const handleChangeHotSearchPage = (currentPage, totalPage, spinIcon) => dispatch => {
   const originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '')
   const originAngleNum = originAngle ? parseInt(originAngle, 10) : 0
   spinIcon.style.transform = `rotate(${originAngleNum + 360}deg)`
 
   if (currentPage < totalPage) {
-    dispatch(_changePage(currentPage + 1))
+    dispatch(_changeHotSearchPage(currentPage + 1))
   } else {
-    dispatch(_changePage(1))
+    dispatch(_changeHotSearchPage(1))
   }
 }
 

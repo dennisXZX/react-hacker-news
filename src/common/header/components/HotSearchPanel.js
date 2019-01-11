@@ -31,7 +31,7 @@ class HotSearchPanel extends Component {
 
   render () {
     const {
-      handleChangePage,
+      handleChangeHotSearchPage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
       currentPage,
@@ -45,7 +45,7 @@ class HotSearchPanel extends Component {
 
         <SearchInfoTitle>
           Hot Searches
-          <SearchInfoSwitch onClick={() => handleChangePage(currentPage, totalPage, this.spinIcon)}>
+          <SearchInfoSwitch onClick={() => handleChangeHotSearchPage(currentPage, totalPage, this.spinIcon)}>
             <i className="iconfont spin" ref={(icon) => {this.spinIcon = icon}}>
               &#xe851;
             </i>
