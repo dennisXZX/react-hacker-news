@@ -41,6 +41,7 @@ class SearchBar extends Component {
       isFocused,
       handleSearchFocus,
       handleSearchBlur,
+      handleArticleSearch,
       hotSearchList
     } = this.props
 
@@ -50,6 +51,7 @@ class SearchBar extends Component {
           className={isFocused ? 'focused' : ''}
           onFocus={() => handleSearchFocus(hotSearchList)}
           onBlur={handleSearchBlur}
+          onChange={handleArticleSearch}
           placeholder='Search...'
         />
 

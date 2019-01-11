@@ -13,28 +13,28 @@ const _changeList = (hotSearchList) => ({
   totalPage: Math.ceil(hotSearchList.length / 7)
 })
 
-export const searchFocus = () => ({
-  type: SEARCH_FOCUS,
+const _searchFocus = () => ({
+  type: SEARCH_FOCUS
 })
 
-export const searchBlur = () => ({
-  type: SEARCH_BLUR,
+const _searchBlur = () => ({
+  type: SEARCH_BLUR
 })
 
-export const hotSearchMouseEnter = () => ({
+const _hotSearchMouseEnter = () => ({
   type: HOT_SEARCH_MOUSE_ENTER
 })
 
-export const hotSearchMouseLeave = () => ({
+const _hotSearchMouseLeave = () => ({
   type: HOT_SEARCH_MOUSE_LEAVE
 })
 
-export const changePage = (newCurrentPage) => ({
+const _changePage = (newCurrentPage) => ({
   type: CHANGE_PAGE,
   newCurrentPage
 })
 
-export const getHotSearchList = () => (dispatch) => {
+const _getHotSearchList = () => (dispatch) => {
   axios.get('api/hotSearchList.json')
     .then((res) => {
       const hotSearchList = res.data.hotSearchList
@@ -44,4 +44,38 @@ export const getHotSearchList = () => (dispatch) => {
     .catch(() => {
       console.log('Get hot search list error')
     })
+}
+
+export const handleSearchFocus = hotSearchList => dispatch => {
+  (hotSearchList.length <= 0) && dispatch(_getHotSearchList())
+
+  dispatch(_searchFocus())
+}
+
+export const handleSearchBlur = () => dispatch => {
+  dispatch(_searchBlur())
+}
+
+export const handleHotSearchMouseEnter = () => dispatch => {
+  dispatch(_hotSearchMouseEnter())
+}
+
+export const handleHotSearchMouseLeave = () => dispatch => {
+  dispatch(_hotSearchMouseLeave())
+}
+
+export const handleChangePage = (currentPage, totalPage, spinIcon) => dispatch => {
+  const originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '')
+  const originAngleNum = originAngle ? parseInt(originAngle, 10) : 0
+  spinIcon.style.transform = `rotate(${originAngleNum + 360}deg)`
+
+  if (currentPage < totalPage) {
+    dispatch(_changePage(currentPage + 1))
+  } else {
+    dispatch(_changePage(1))
+  }
+}
+
+export const handleArticleSearch = () => dispatch => {
+  console.log('typing')
 }

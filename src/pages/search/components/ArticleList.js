@@ -12,7 +12,10 @@ const ArticleList = (props) => {
   return (
     <ArticleListWrapper>
       {hitArticleList.map(article => (
-        <ArticleItem article={article} />
+        <ArticleItem
+          key={article.objectID}
+          article={article}
+        />
       ))}
     </ArticleListWrapper>
   )

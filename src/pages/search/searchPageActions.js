@@ -7,7 +7,7 @@ const _updateHitArticleList = (hitArticleList) => ({
   hitArticleList
 })
 
-export const loadInitialPageData = () => (dispatch) => {
+export const _loadHitArticleList = () => (dispatch) => {
   axios.get('http://hn.algolia.com/api/v1/search?tags=front_page')
     .then(res => {
       const hitArticleList = res.data.hits
@@ -17,4 +17,8 @@ export const loadInitialPageData = () => (dispatch) => {
     .catch(() => {
       console.log('Get home page data error')
     })
+}
+
+export const loadInitialPageData = () => dispatch => {
+  dispatch(_loadHitArticleList())
 }
