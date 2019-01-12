@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import {
   HotSearchWrapper,
   SearchInfoList,
@@ -10,8 +11,9 @@ import {
 class HotSearchPanel extends Component {
   getCurrentPageItems = () => {
     const {
-      hotSearchList,
       currentPage,
+      handleHotSearchClick,
+      hotSearchList
     } = this.props
 
     const pageList = []
@@ -19,7 +21,10 @@ class HotSearchPanel extends Component {
     if (hotSearchList.length) {
       for (let i = (currentPage - 1) * 7; i < currentPage * 7; i++) {
         pageList.push(
-          <SearchInfoItem key={hotSearchList[i]}>
+          <SearchInfoItem
+            key={hotSearchList[i]}
+            onClick={() => handleHotSearchClick(hotSearchList[i])}
+          >
             {hotSearchList[i]}
           </SearchInfoItem>
         )

@@ -35,7 +35,7 @@ export const fetchArticleList = ({ dispatch, newSearchWord = '', pageNum = 0 }) 
 export const loadInitialPageData = () => dispatch => {
   const queryParams = {
     dispatch,
-    newSearchWord: 'Javascript'
+    newSearchWord: 'hello world'
   }
 
   fetchArticleList(queryParams)

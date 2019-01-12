@@ -16,6 +16,7 @@ class SearchBar extends Component {
       handleChangeHotSearchPage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
+      handleHotSearchClick,
       hotSearchList,
       totalPage
     } = this.props
@@ -26,6 +27,7 @@ class SearchBar extends Component {
           handleHotSearchMouseEnter={handleHotSearchMouseEnter}
           handleHotSearchMouseLeave={handleHotSearchMouseLeave}
           handleChangeHotSearchPage={handleChangeHotSearchPage}
+          handleHotSearchClick={handleHotSearchClick}
           currentPage={currentPage}
           totalPage={totalPage}
           hotSearchList={hotSearchList}

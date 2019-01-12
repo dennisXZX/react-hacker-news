@@ -101,3 +101,7 @@ export const handleChangeHotSearchPage = (currentPage, totalPage, spinIcon) => d
 export const handleSearchChange = (event) => dispatch => {
   dispatch(_changeSearch(event.target.value))
 }
+
+export const handleHotSearchClick = (hotSearch) => dispatch => {
+  dispatch(_changeSearch(hotSearch))
+}
