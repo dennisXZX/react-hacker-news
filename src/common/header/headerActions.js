@@ -1,4 +1,9 @@
 import axios from 'axios'
+import debounce from 'lodash.debounce'
+
+import { MOCK_HOT_SEARCH_API } from '../../constants/apiURL'
+
+import { fetchArticleList } from '../../pages/search/searchPageActions'
 
 export const SEARCH_FOCUS = 'Header.SEARCH_FOCUS'
 export const SEARCH_BLUR = 'Header.SEARCH_BLUR'
@@ -36,21 +41,32 @@ const _changeHotSearchPage = (newCurrentPage) => ({
 })
 
 const _getHotSearchList = () => (dispatch) => {
-  axios.get('api/hotSearchList.json')
-    .then((res) => {
+  axios.get(MOCK_HOT_SEARCH_API)
+    .then(res => {
       const hotSearchList = res.data.hotSearchList
 
       dispatch(_changeList(hotSearchList))
     })
-    .catch(() => {
-      console.log('Get hot search list error')
+    .catch(err => {
+      console.log('Get hot search list error', err)
     })
 }
 
-const _changeSearch = (newSearchWord) => ({
-  type: CHANGE_SEARCH,
-  newSearchWord
-})
+const debounceFetchArticleList = debounce(fetchArticleList, 300)
+
+const _changeSearch = (newSearchWord) => dispatch => {
+  dispatch({
+    type: CHANGE_SEARCH,
+    newSearchWord
+  })
+
+  const queryParams = {
+    dispatch,
+    newSearchWord
+  }
+
+  debounceFetchArticleList(queryParams);
+}
 
 export const handleSearchFocus = hotSearchList => dispatch => {
   (hotSearchList.length <= 0) && dispatch(_getHotSearchList())

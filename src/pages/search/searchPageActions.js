@@ -1,8 +1,10 @@
 import axios from 'axios'
 
+import { BASE_HACKER_NEWS_API } from '../../constants/apiURL'
+
 export const UPDATE_ARTICLE_LIST = 'Search.UPDATE_ARTICLE_LIST'
 
-const _updateArticleList = (searchResult) => {
+export const updateArticleList = (searchResult) => {
   const { articleList, articlePerPage, totalPage } = searchResult
   return {
     type: UPDATE_ARTICLE_LIST,
@@ -12,8 +14,8 @@ const _updateArticleList = (searchResult) => {
   }
 }
 
-export const _loadArticleList = (apiUrl) => (dispatch) => {
-  axios.get(apiUrl)
+export const fetchArticleList = ({ dispatch, newSearchWord = '', pageNum = 0 }) => {
+  axios.get(`${BASE_HACKER_NEWS_API}query=${newSearchWord}&page=${pageNum}`)
     .then(res => {
       const { hits, nbPages, hitsPerPage } = res.data
 
@@ -23,14 +25,18 @@ export const _loadArticleList = (apiUrl) => (dispatch) => {
         totalPage: nbPages
       }
 
-      dispatch(_updateArticleList(searchResult))
+      dispatch(updateArticleList(searchResult))
     })
-    .catch(() => {
-      console.log('Get home page data error')
+    .catch(err => {
+      console.log('Load article list error', err)
     })
 }
 
 export const loadInitialPageData = () => dispatch => {
-  const frontPageAPI = 'http://hn.algolia.com/api/v1/search?tags=front_page';
-  dispatch(_loadArticleList(frontPageAPI))
+  const queryParams = {
+    dispatch,
+    newSearchWord: 'Javascript'
+  }
+
+  fetchArticleList(queryParams)
 }

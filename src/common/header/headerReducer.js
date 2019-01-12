@@ -60,14 +60,11 @@ const _handleHotSearchPageChange = (state, action) => {
   }
 }
 
-const _handleSearchChange = (state, action) => dispatch => {
-
-
-
-  // return {
-  //   ...state,
-  //   currentSearch: action.newSearchWord
-  // }
+const _handleSearchChange = (state, action) => {
+  return {
+    ...state,
+    currentSearch: action.newSearchWord
+  }
 }
 
 export default (state = defaultState, action) => {
