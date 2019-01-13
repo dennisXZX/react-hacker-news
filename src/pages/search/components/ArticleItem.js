@@ -24,13 +24,23 @@ const ArticleItem = (props) => {
     title
       ? (
         <ArticleItemWrapper>
-          <Title dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }}></Title>
+          <Title
+	          href={url}
+	          target="_blank"
+	          rel="noopener noreferrer"
+	          dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }} />
           <MetaDataWrapper>
             <MetaDataItem>{points}</MetaDataItem>
             <MetaDataItem>{author}</MetaDataItem>
             <MetaDataItem>{created_at_i}</MetaDataItem>
             <MetaDataItem>{num_comments}</MetaDataItem>
-            <MetaDataItem className="desktop-only">{urlFormatted}</MetaDataItem>
+            <MetaDataItem className="desktop-only">
+	            <a
+		            href={url}
+		            target="_blank"
+		            rel="noopener noreferrer"
+	            >({urlFormatted})</a>
+            </MetaDataItem>
           </MetaDataWrapper>
         </ArticleItemWrapper>
       ) : null
