@@ -1,5 +1,7 @@
 import React from 'react'
 
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+
 import {
   ArticleItemWrapper,
   Title,
@@ -11,7 +13,7 @@ const ArticleItem = (props) => {
   const {
     _highlightResult,
     author,
-    created_at_i,
+	  created_at,
     num_comments,
     points,
     title,
@@ -30,10 +32,10 @@ const ArticleItem = (props) => {
 	          rel="noopener noreferrer"
 	          dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }} />
           <MetaDataWrapper>
-            <MetaDataItem>{points}</MetaDataItem>
+            <MetaDataItem>{points} points</MetaDataItem>
             <MetaDataItem>{author}</MetaDataItem>
-            <MetaDataItem>{created_at_i}</MetaDataItem>
-            <MetaDataItem>{num_comments}</MetaDataItem>
+            <MetaDataItem>{distanceInWordsToNow(created_at)}</MetaDataItem>
+            <MetaDataItem>{num_comments} comments</MetaDataItem>
             <MetaDataItem className="desktop-only">
 	            <a
 		            href={url}

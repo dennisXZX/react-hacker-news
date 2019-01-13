@@ -11,7 +11,7 @@ This is a web application that contains the following main features:
 - Users can use hot searches feature to quickly perform a search
 
 ## Technology
-- Code: `React (16.7.0), Redux (4.0.1)`
+- Code: `React (16.7.0), Redux (4.0.1), date-fns, axios`
 - Styling: `styled-components`
 - Linting: `Eslint`
 - Testing: `Jest`
