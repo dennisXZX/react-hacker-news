@@ -15,6 +15,10 @@ import {
 
 
 class SearchPage extends Component {
+  componentDidMount () {
+    this.props.loadInitialPageData()
+  }
+
   handlePageClick = (data) => {
     console.log(data)
   }
@@ -33,19 +37,15 @@ class SearchPage extends Component {
       </ResultWrapper>
     )
   }
-
-  componentDidMount () {
-    this.props.loadInitialPageData()
-  }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     articleList: state.searchPage.articleList
   }
 }
 
-export const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
     loadInitialPageData
   }, dispatch)

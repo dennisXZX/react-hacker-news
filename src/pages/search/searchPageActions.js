@@ -2,10 +2,9 @@ import axios from 'axios'
 
 import { BASE_HACKER_NEWS_API } from '../../constants/apiURL'
 
-export const UPDATE_ARTICLE_LIST = 'Search.UPDATE_ARTICLE_LIST'
+export const UPDATE_ARTICLE_LIST = 'Search@UPDATE_ARTICLE_LIST'
 
-export const updateArticleList = (searchResult) => {
-  const { articleList, articlePerPage, totalPage } = searchResult
+export const updateArticleList = ({ articleList, articlePerPage, totalPage }) => {
   return {
     type: UPDATE_ARTICLE_LIST,
     articleList,

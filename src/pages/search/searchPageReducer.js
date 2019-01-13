@@ -8,7 +8,7 @@ const defaultState = {
   articlePerPage: 20
 }
 
-const _updateArticleList = (state, action) => {
+const updateArticleList = (state, action) => {
   const { articleList, articlePerPage, totalPage } = action
 
   return {
@@ -22,7 +22,7 @@ const _updateArticleList = (state, action) => {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_ARTICLE_LIST:
-      return _updateArticleList(state, action)
+      return updateArticleList(state, action)
     default:
       return state
   }

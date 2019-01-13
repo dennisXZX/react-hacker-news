@@ -5,47 +5,47 @@ import { MOCK_HOT_SEARCH_API } from '../../constants/apiURL'
 
 import { fetchArticleList } from '../../pages/search/searchPageActions'
 
-export const SEARCH_FOCUS = 'Header.SEARCH_FOCUS'
-export const SEARCH_BLUR = 'Header.SEARCH_BLUR'
-export const GET_HOT_SEARCH_LIST = 'Header.GET_HOT_SEARCH_LIST'
-export const HOT_SEARCH_MOUSE_ENTER = 'Header.HOT_SEARCH_MOUSE_ENTER'
-export const HOT_SEARCH_MOUSE_LEAVE = 'Header.HOT_SEARCH_MOUSE_LEAVE'
-export const HOT_SEARCH_CHANGE_PAGE = 'Header.HOT_SEARCH_CHANGE_PAGE'
-export const CHANGE_SEARCH = 'Header.CHANGE_SEARCH'
+export const SEARCH_FOCUS = 'Header@SEARCH_FOCUS'
+export const SEARCH_BLUR = 'Header@SEARCH_BLUR'
+export const GET_HOT_SEARCH_LIST = 'Header@GET_HOT_SEARCH_LIST'
+export const HOT_SEARCH_MOUSE_ENTER = 'Header@HOT_SEARCH_MOUSE_ENTER'
+export const HOT_SEARCH_MOUSE_LEAVE = 'Header@HOT_SEARCH_MOUSE_LEAVE'
+export const HOT_SEARCH_CHANGE_PAGE = 'Header@HOT_SEARCH_CHANGE_PAGE'
+export const CHANGE_SEARCH = 'Header@CHANGE_SEARCH'
 
-const _changeList = (hotSearchList) => ({
+const changeList = hotSearchList => ({
   type: GET_HOT_SEARCH_LIST,
   hotSearchList,
   totalPage: Math.ceil(hotSearchList.length / 7)
 })
 
-const _searchFocus = () => ({
+const searchFocus = () => ({
   type: SEARCH_FOCUS
 })
 
-const _searchBlur = () => ({
+const searchBlur = () => ({
   type: SEARCH_BLUR
 })
 
-const _hotSearchMouseEnter = () => ({
+const hotSearchMouseEnter = () => ({
   type: HOT_SEARCH_MOUSE_ENTER
 })
 
-const _hotSearchMouseLeave = () => ({
+const hotSearchMouseLeave = () => ({
   type: HOT_SEARCH_MOUSE_LEAVE
 })
 
-const _changeHotSearchPage = (newCurrentPage) => ({
+const changeHotSearchPage = newCurrentPage => ({
   type: HOT_SEARCH_CHANGE_PAGE,
   newCurrentPage
 })
 
-const _getHotSearchList = () => (dispatch) => {
+const getHotSearchList = () => dispatch => {
   axios.get(MOCK_HOT_SEARCH_API)
     .then(res => {
       const hotSearchList = res.data.hotSearchList
 
-      dispatch(_changeList(hotSearchList))
+      dispatch(changeList(hotSearchList))
     })
     .catch(err => {
       console.log('Get hot search list error', err)
@@ -54,7 +54,7 @@ const _getHotSearchList = () => (dispatch) => {
 
 const debounceFetchArticleList = debounce(fetchArticleList, 300)
 
-const _changeSearch = (newSearchWord) => dispatch => {
+const changeSearch = newSearchWord => dispatch => {
   dispatch({
     type: CHANGE_SEARCH,
     newSearchWord
@@ -69,21 +69,21 @@ const _changeSearch = (newSearchWord) => dispatch => {
 }
 
 export const handleSearchFocus = hotSearchList => dispatch => {
-  (hotSearchList.length <= 0) && dispatch(_getHotSearchList())
+  (hotSearchList.length <= 0) && dispatch(getHotSearchList())
 
-  dispatch(_searchFocus())
+  dispatch(searchFocus())
 }
 
 export const handleSearchBlur = () => dispatch => {
-  dispatch(_searchBlur())
+  dispatch(searchBlur())
 }
 
 export const handleHotSearchMouseEnter = () => dispatch => {
-  dispatch(_hotSearchMouseEnter())
+  dispatch(hotSearchMouseEnter())
 }
 
 export const handleHotSearchMouseLeave = () => dispatch => {
-  dispatch(_hotSearchMouseLeave())
+  dispatch(hotSearchMouseLeave())
 }
 
 export const handleChangeHotSearchPage = (currentPage, totalPage, spinIcon) => dispatch => {
@@ -92,16 +92,16 @@ export const handleChangeHotSearchPage = (currentPage, totalPage, spinIcon) => d
   spinIcon.style.transform = `rotate(${originAngleNum + 360}deg)`
 
   if (currentPage < totalPage) {
-    dispatch(_changeHotSearchPage(currentPage + 1))
+    dispatch(changeHotSearchPage(currentPage + 1))
   } else {
-    dispatch(_changeHotSearchPage(1))
+    dispatch(changeHotSearchPage(1))
   }
 }
 
-export const handleSearchChange = (event) => dispatch => {
-  dispatch(_changeSearch(event.target.value))
+export const handleSearchChange = event => dispatch => {
+  dispatch(changeSearch(event.target.value))
 }
 
-export const handleHotSearchClick = (hotSearch) => dispatch => {
-  dispatch(_changeSearch(hotSearch))
+export const handleHotSearchClick = hotSearch => dispatch => {
+  dispatch(changeSearch(hotSearch))
 }

@@ -17,21 +17,21 @@ const defaultState = {
   totalPage: 1
 }
 
-const _handleSearchFocus = (state, action) => {
+const handleSearchFocus = (state, action) => {
   return {
     ...state,
     isFocused: true
   }
 }
 
-const _handleSearchBlur = (state, action) => {
+const handleSearchBlur = (state, action) => {
   return {
     ...state,
     isFocused: false
   }
 }
 
-const _getHotSearchList = (state, action) => {
+const getHotSearchList = (state, action) => {
   return {
     ...state,
     hotSearchList: action.hotSearchList,
@@ -39,28 +39,28 @@ const _getHotSearchList = (state, action) => {
   }
 }
 
-const _handleHotSearchMouseEnter = (state, action) => {
+const handleHotSearchMouseEnter = (state, action) => {
   return {
     ...state,
     isHotSearchMouseIn: true
   }
 }
 
-const _handleHotSearchMouseLeave = (state, action) => {
+const handleHotSearchMouseLeave = (state, action) => {
   return {
     ...state,
     isHotSearchMouseIn: false
   }
 }
 
-const _handleHotSearchPageChange = (state, action) => {
+const handleHotSearchPageChange = (state, action) => {
   return {
     ...state,
     currentPage: action.newCurrentPage
   }
 }
 
-const _handleSearchChange = (state, action) => {
+const handleSearchChange = (state, action) => {
   return {
     ...state,
     currentSearch: action.newSearchWord
@@ -70,19 +70,19 @@ const _handleSearchChange = (state, action) => {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case SEARCH_FOCUS:
-      return _handleSearchFocus(state, action)
+      return handleSearchFocus(state, action)
     case SEARCH_BLUR:
-      return _handleSearchBlur(state, action)
+      return handleSearchBlur(state, action)
     case GET_HOT_SEARCH_LIST:
-      return _getHotSearchList(state, action)
+      return getHotSearchList(state, action)
     case HOT_SEARCH_MOUSE_ENTER:
-      return _handleHotSearchMouseEnter(state, action)
+      return handleHotSearchMouseEnter(state, action)
     case HOT_SEARCH_MOUSE_LEAVE:
-      return _handleHotSearchMouseLeave(state, action)
+      return handleHotSearchMouseLeave(state, action)
     case HOT_SEARCH_CHANGE_PAGE:
-      return _handleHotSearchPageChange(state, action)
+      return handleHotSearchPageChange(state, action)
     case CHANGE_SEARCH:
-      return _handleSearchChange(state, action)
+      return handleSearchChange(state, action)
     default:
       return state
   }

@@ -63,7 +63,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isFocused: state.header.isFocused,
     hotSearchList: state.header.hotSearchList,
@@ -74,7 +74,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
     handleChangeHotSearchPage,
     handleHotSearchMouseEnter,
