@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import ArticleList from './components/ArticleList'
 import Pagination from './components/Pagination'
-import Loading from '../../UI/Loading/LoadingSpinner'
-import ErrorMessage from '../../UI/Error/ErrorMessage'
+import Loading from '../../UI/loading/LoadingSpinner'
+import ErrorMessage from '../../UI/error/ErrorMessage'
 
 import {
   loadPageData
