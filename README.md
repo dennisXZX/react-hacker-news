@@ -52,6 +52,10 @@ I have assumed that all data provided by HN Search API is sanitised. As the app 
 ## Considerations
 I deliberately remove the search button from the app, instead, I use instant search feature to provide a smoother experience. The API call is debounced in order to reduce burden on the backend.
 
+The API would come back with no search result for certain keywords, which need to be handled properly. 
+
+Some website URLs coming back from API might be extremely long, which would cause a UI/UX problem without tidying up first. For now, a simple slice rule is applied for long URL.
+
 ## Future Improvement
 - Sorting by all the criteria (type, order, date range) could be provided
 

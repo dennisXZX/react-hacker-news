@@ -45,7 +45,7 @@ class SearchPage extends Component {
         <Loading />
       )
     }
-    
+
 		if (articleList.length === 0) {
 			return (
 				<ErrorMessage

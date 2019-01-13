@@ -18,6 +18,8 @@ const ArticleItem = (props) => {
     url
   } = props.article
 
+	const urlFormatted = url && url.length > 120 ? `${url.slice(0, 100)}...` : url
+
   return (
     title
       ? (
@@ -28,7 +30,7 @@ const ArticleItem = (props) => {
             <MetaDataItem>{author}</MetaDataItem>
             <MetaDataItem>{created_at_i}</MetaDataItem>
             <MetaDataItem>{num_comments}</MetaDataItem>
-            <MetaDataItem className="desktop-only">{url}</MetaDataItem>
+            <MetaDataItem className="desktop-only">{urlFormatted}</MetaDataItem>
           </MetaDataWrapper>
         </ArticleItemWrapper>
       ) : null
