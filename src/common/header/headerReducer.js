@@ -10,7 +10,7 @@ import {
 
 const defaultState = {
   currentHotSearchPage: 1,
-  currentSearch: '',
+  currentSearch: 'hello world',
   isFocused: false,
   isHotSearchMouseIn: false,
   hotSearchList: [],

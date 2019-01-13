@@ -18,17 +18,21 @@ const ArticleItem = (props) => {
   } = props.article
 
   return (
-    <ArticleItemWrapper>
-      <Title>{title}</Title>
-      <MetaDataWrapper>
-        <MetaDataItem>{points}</MetaDataItem>
-        <MetaDataItem>{author}</MetaDataItem>
-        <MetaDataItem>{created_at_i}</MetaDataItem>
-        <MetaDataItem>{num_comments}</MetaDataItem>
-        <MetaDataItem className="desktop-only">{url}</MetaDataItem>
-      </MetaDataWrapper>
-    </ArticleItemWrapper>
+    title
+      ? (
+        <ArticleItemWrapper>
+          <Title>{title}</Title>
+          <MetaDataWrapper>
+            <MetaDataItem>{points}</MetaDataItem>
+            <MetaDataItem>{author}</MetaDataItem>
+            <MetaDataItem>{created_at_i}</MetaDataItem>
+            <MetaDataItem>{num_comments}</MetaDataItem>
+            <MetaDataItem className="desktop-only">{url}</MetaDataItem>
+          </MetaDataWrapper>
+        </ArticleItemWrapper>
+      ) : null
   )
+
 }
 
 export default ArticleItem

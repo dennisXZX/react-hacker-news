@@ -18,7 +18,7 @@ class SearchPage extends Component {
   componentDidMount () {
     const { loadPageData } = this.props
 
-    loadPageData()
+    loadPageData('hello world')
   }
 
   render () {
