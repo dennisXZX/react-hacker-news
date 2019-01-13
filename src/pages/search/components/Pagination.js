@@ -7,7 +7,7 @@ import {
 const Pagination = ({
     currentArticlePage,
     currentSearch,
-    handlePageClick
+    loadPageData
   }) => (
   <PaginationWrapper>
     <ReactPaginate
@@ -18,7 +18,7 @@ const Pagination = ({
       marginPagesDisplayed={1}
       nextClassName="paginationNext"
       nextLabel=">"
-      onPageChange={(data) => handlePageClick(currentSearch, data)}
+      onPageChange={(pageObj) => loadPageData(currentSearch, pageObj.selected)}
       pageCount={30}
       pageRangeDisplayed={2}
       pageClassName="paginationPage"

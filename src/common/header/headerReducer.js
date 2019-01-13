@@ -10,7 +10,7 @@ import {
 
 const defaultState = {
   currentHotSearchPage: 1,
-  currentSearch: 'hello world',
+  currentSearch: '',
   isFocused: false,
   isHotSearchMouseIn: false,
   hotSearchList: [],
@@ -53,14 +53,14 @@ const handleHotSearchMouseLeave = (state) => {
   }
 }
 
-const handleHotSearchPageChange = (state, action) => {
+const changeHotSearchPage = (state, action) => {
   return {
     ...state,
     currentHotSearchPage: action.newCurrentPage
   }
 }
 
-const handleSearchChange = (state, action) => {
+const changeSearch = (state, action) => {
   return {
     ...state,
     currentSearch: action.searchWord
@@ -69,10 +69,8 @@ const handleSearchChange = (state, action) => {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case SEARCH_FOCUS:
-      return handleSearchFocus(state, action)
-    case SEARCH_BLUR:
-      return handleSearchBlur(state, action)
+    case CHANGE_SEARCH:
+      return changeSearch(state, action)
     case GET_HOT_SEARCH_LIST:
       return getHotSearchList(state, action)
     case HOT_SEARCH_MOUSE_ENTER:
@@ -80,9 +78,11 @@ export default (state = defaultState, action) => {
     case HOT_SEARCH_MOUSE_LEAVE:
       return handleHotSearchMouseLeave(state, action)
     case HOT_SEARCH_CHANGE_PAGE:
-      return handleHotSearchPageChange(state, action)
-    case CHANGE_SEARCH:
-      return handleSearchChange(state, action)
+      return changeHotSearchPage(state, action)
+    case SEARCH_FOCUS:
+      return handleSearchFocus(state, action)
+    case SEARCH_BLUR:
+      return handleSearchBlur(state, action)
     default:
       return state
   }

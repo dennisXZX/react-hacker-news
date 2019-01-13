@@ -12,7 +12,6 @@ export const updateArticleList = ({ articleList, articlePerPage, totalPage }) =>
   totalPage
 })
 
-
 const updateArticlePage = pageNum => ({
   type: UPDATE_ARTICLE_PAGE,
   pageNum
@@ -37,17 +36,7 @@ export const fetchArticleList = ({ dispatch, searchWord = '', pageNum = 0 }) => 
     })
 }
 
-export const loadInitialPageData = () => dispatch => {
-  const queryParams = {
-    dispatch,
-    searchWord: 'hello world'
-  }
-
-  fetchArticleList(queryParams)
-}
-
-export const loadPageData = (searchWord, { selected: pageNum }) => dispatch => {
-  console.log(searchWord, pageNum)
+export const loadPageData = (searchWord = '', pageNum = 0) => dispatch => {
   dispatch(updateArticlePage(pageNum))
 
   const queryParams = {

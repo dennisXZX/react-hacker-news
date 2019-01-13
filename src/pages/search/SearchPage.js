@@ -6,7 +6,6 @@ import ArticleList from './components/ArticleList'
 import Pagination from './components/Pagination'
 
 import {
-  loadInitialPageData,
   loadPageData
 } from './searchPageActions'
 
@@ -17,7 +16,9 @@ import {
 
 class SearchPage extends Component {
   componentDidMount () {
-    this.props.loadInitialPageData()
+    const { loadPageData } = this.props
+
+    loadPageData()
   }
 
   render () {
@@ -36,7 +37,7 @@ class SearchPage extends Component {
         <Pagination
           currentArticlePage={currentArticlePage}
           currentSearch={currentSearch}
-          handlePageClick={loadPageData}
+          loadPageData={loadPageData}
         />
       </ResultWrapper>
     )
@@ -53,7 +54,6 @@ const mapStateToProps = state => {
 
 export const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
-    loadInitialPageData,
     loadPageData
   }, dispatch)
 });
