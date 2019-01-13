@@ -8,10 +8,10 @@ class LoadingSpinner extends Component {
     return (
       <LoadingSpinnerWrapper>
         <Loader
-          type="Watch"
-          color="#FF742B"
-          height="50"
-          width="50"
+          type='Watch'
+          color='#FF742B'
+          height='50'
+          width='50'
         />
         <LoadingText>Loading...</LoadingText>
       </LoadingSpinnerWrapper>

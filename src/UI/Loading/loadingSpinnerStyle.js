@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 
 export const LoadingSpinnerWrapper = styled.div`
-    margin: 100px auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 `
 
 export const LoadingText = styled.div`
