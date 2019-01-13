@@ -12,11 +12,13 @@ export const HotSearchWrapper = styled.div`
 
 export const SearchInfoTitle = styled.div`
   color: #969696;
+  font-size: 1.1rem;
 `
 
 export const SearchInfoSwitch = styled.span`
   float: right;
   cursor: pointer;
+  font-size: 1rem;
   
   &:hover {
     color: #555;

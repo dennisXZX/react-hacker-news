@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const ReactPaginationStyle = createGlobalStyle`
+const PaginationStyle = createGlobalStyle`
   .paginationContainer {
     display: flex;
   }
@@ -10,11 +10,11 @@ const ReactPaginationStyle = createGlobalStyle`
     border: 1px solid #9d9d9d;
     outline: none;
     color: #9d9d9d;
-    padding: 5px 15px;
+    padding: 5px 12px;
     border-radius: 3px;
     cursor: pointer;
     position: relative;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     
     &:hover {
       border: 1px solid #ffb290;
@@ -70,11 +70,11 @@ const ReactPaginationStyle = createGlobalStyle`
   }
   
   .paginationPrevious {
-    margin-right: 13px;
+    margin-right: 10px;
   }
   
   .paginationNext {
-    margin-left: 13px;
+    margin-left: 10px;
   }
   
   .paginationActive {
@@ -83,4 +83,4 @@ const ReactPaginationStyle = createGlobalStyle`
   }
 `
 
-export default ReactPaginationStyle
+export default PaginationStyle
