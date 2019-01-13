@@ -34,15 +34,25 @@ class SearchPage extends Component {
 
     if (error) {
       return (
-        <ErrorMessage />
+        <ErrorMessage
+          message='Sorry, something just went wrong...'
+        />
       )
     }
 
-    if (isLoading) {
+		if (isLoading) {
       return (
         <Loading />
       )
     }
+    
+		if (articleList.length === 0) {
+			return (
+				<ErrorMessage
+					message='Sorry, no search result for this keyword...'
+				/>
+			)
+		}
 
     return (
       <ResultWrapper>
@@ -73,6 +83,6 @@ export const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
     loadPageData
   }, dispatch)
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
