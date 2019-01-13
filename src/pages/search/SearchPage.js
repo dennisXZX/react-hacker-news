@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import ArticleList from './components/ArticleList'
 import Pagination from './components/Pagination'
+import Loading from '../../UI/Loading/LoadingSpinner'
 
 import {
   loadPageData
@@ -26,8 +27,15 @@ class SearchPage extends Component {
       articleList,
       currentArticlePage,
       currentSearch,
+      isLoading,
       loadPageData
     } = this.props
+
+    if (isLoading) {
+      return (
+        <Loading />
+      )
+    }
 
     return (
       <ResultWrapper>
@@ -48,7 +56,9 @@ const mapStateToProps = state => {
   return {
     articleList: state.searchPage.articleList,
     currentArticlePage: state.searchPage.currentArticlePage,
-    currentSearch: state.header.currentSearch
+    currentSearch: state.header.currentSearch,
+    isLoading: state.searchPage.isLoading,
+    error: state.searchPage.error
   }
 }
 

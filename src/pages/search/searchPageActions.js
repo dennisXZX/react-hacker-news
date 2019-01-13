@@ -3,9 +3,11 @@ import axios from 'axios'
 import { BASE_HACKER_NEWS_API } from '../../constants/apiURL'
 
 export const UPDATE_ARTICLE_LIST = 'Search@UPDATE_ARTICLE_LIST'
+export const UPDATE_ARTICLE_LIST_START = 'Search@UPDATE_ARTICLE_LIST_START'
+export const UPDATE_ARTICLE_LIST_FAIL = 'Search@UPDATE_ARTICLE_LIST_FAIL'
 export const UPDATE_ARTICLE_PAGE = 'Search@UPDATE_ARTICLE_PAGE'
 
-export const updateArticleList = ({ articleList, articlePerPage, totalPage }) => ({
+const updateArticleList = ({ articleList, articlePerPage, totalPage }) => ({
   type: UPDATE_ARTICLE_LIST,
   articleList,
   articlePerPage,
@@ -17,7 +19,18 @@ const updateArticlePage = pageNum => ({
   pageNum
 })
 
+const fetchArticleListStart = () => ({
+  type: UPDATE_ARTICLE_LIST_START
+})
+
+const fetchArticleListFail = (error) => ({
+  type: UPDATE_ARTICLE_LIST_FAIL,
+  error
+})
+
 export const fetchArticleList = ({ dispatch, searchWord = '', pageNum = 0 }) => {
+  dispatch(fetchArticleListStart())
+
   axios.get(`${BASE_HACKER_NEWS_API}query=${searchWord}&page=${pageNum}`)
     .then(res => {
       const { hits, nbPages, hitsPerPage } = res.data
@@ -28,17 +41,15 @@ export const fetchArticleList = ({ dispatch, searchWord = '', pageNum = 0 }) => 
         totalPage: nbPages
       }
 
-      dispatch(updateArticleList(searchResult))
       dispatch(updateArticlePage(pageNum))
+      dispatch(updateArticleList(searchResult))
     })
     .catch(err => {
-      console.log('Load article list error', err)
+      dispatch(fetchArticleListFail(err))
     })
 }
 
 export const loadPageData = (searchWord = '', pageNum = 0) => dispatch => {
-  dispatch(updateArticlePage(pageNum))
-
   const queryParams = {
     dispatch,
     searchWord,
