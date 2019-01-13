@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const HotSearchWrapper = styled.div`
   display: none;
 
-  @media (min-width: 1140px) {
+  @media (min-width: 1024px) {
+    display: block;
     position: absolute;
     left: 500px;
     top: 0;

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import Logo from './components/Logo'
 import SearchBar from './components/SearchBar'
+import ResultCount from './components/ResultCount'
 
 import {
   handleSearchFocus,
@@ -23,6 +24,7 @@ import {
 class Header extends Component {
   render () {
     const {
+      articleCount,
       currentHotSearchPage,
       currentSearch,
       isFocused,
@@ -35,6 +37,7 @@ class Header extends Component {
       handleSearchBlur,
       handleSearchChange,
       hotSearchList,
+      processingTimeMS,
       totalPage
     } = this.props
 
@@ -45,8 +48,6 @@ class Header extends Component {
           <SearchBar
             currentHotSearchPage={currentHotSearchPage}
             currentSearch={currentSearch}
-            isFocused={isFocused}
-            isHotSearchMouseIn={isHotSearchMouseIn}
             handleChangeHotSearchPage={handleChangeHotSearchPage}
             handleHotSearchMouseEnter={handleHotSearchMouseEnter}
             handleHotSearchMouseLeave={handleHotSearchMouseLeave}
@@ -55,9 +56,15 @@ class Header extends Component {
             handleSearchBlur={handleSearchBlur}
             handleSearchChange={handleSearchChange}
             hotSearchList={hotSearchList}
+            isFocused={isFocused}
+            isHotSearchMouseIn={isHotSearchMouseIn}
             totalPage={totalPage}
           />
         </Nav>
+        <ResultCount
+          articleCount={articleCount}
+          processingTimeMS={processingTimeMS}
+        />
       </HeaderWrapper>
     )
   }
@@ -65,12 +72,14 @@ class Header extends Component {
 
 const mapStateToProps = state => {
   return {
-    isFocused: state.header.isFocused,
-    hotSearchList: state.header.hotSearchList,
+    articleCount: state.searchPage.articleCount,
     currentHotSearchPage: state.header.currentHotSearchPage,
     currentSearch: state.header.currentSearch,
-    totalPage: state.header.totalPage,
+    hotSearchList: state.header.hotSearchList,
+    isFocused: state.header.isFocused,
     isHotSearchMouseIn: state.header.isHotSearchMouseIn,
+    processingTimeMS: state.searchPage.processingTimeMS,
+    totalPage: state.header.totalPage,
   }
 }
 

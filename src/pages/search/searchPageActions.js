@@ -7,10 +7,18 @@ export const UPDATE_ARTICLE_LIST_START = 'Search@UPDATE_ARTICLE_LIST_START'
 export const UPDATE_ARTICLE_LIST_FAIL = 'Search@UPDATE_ARTICLE_LIST_FAIL'
 export const UPDATE_ARTICLE_PAGE = 'Search@UPDATE_ARTICLE_PAGE'
 
-const updateArticleList = ({ articleList, articlePerPage, totalPage }) => ({
+const updateArticleList = ({
+  articleList,
+  articleCount,
+  articlePerPage,
+  processingTimeMS,
+  totalPage
+}) => ({
   type: UPDATE_ARTICLE_LIST,
   articleList,
+  articleCount,
   articlePerPage,
+  processingTimeMS,
   totalPage
 })
 
@@ -33,12 +41,14 @@ export const fetchArticleList = ({ dispatch, searchWord = '', pageNum = 0 }) => 
 
   axios.get(`${BASE_HACKER_NEWS_API}query=${searchWord}&page=${pageNum}`)
     .then(res => {
-      const { hits, nbPages, hitsPerPage } = res.data
+      const { hits, nbPages, hitsPerPage, nbHits, processingTimeMS } = res.data
 
       const searchResult = {
         articleList: hits,
         articlePerPage: hitsPerPage,
-        totalPage: nbPages
+        totalPage: nbPages,
+        articleCount: nbHits,
+        processingTimeMS
       }
 
       dispatch(updateArticlePage(pageNum))

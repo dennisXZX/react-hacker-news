@@ -9,20 +9,24 @@ const defaultState = {
   articleList: [],
   articlePerPage: 20,
   currentArticlePage: 0,
+  articleCount: 0,
+  processingTimeMS: 0,
   error: null,
   isLoading: false,
   totalPage: 0
 }
 
 const updateArticleList = (state, action) => {
-  const { articleList, articlePerPage, totalPage } = action
+  const { articleList, articlePerPage, totalPage, articleCount, processingTimeMS } = action
 
   return {
     ...state,
+    articleCount,
     articleList,
     articlePerPage,
-    totalPage,
-    isLoading: false
+    isLoading: false,
+    processingTimeMS,
+    totalPage
   }
 }
 
