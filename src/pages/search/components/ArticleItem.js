@@ -9,11 +9,12 @@ import {
 
 const ArticleItem = (props) => {
   const {
-    title,
-    points,
+    _highlightResult,
     author,
     created_at_i,
     num_comments,
+    points,
+    title,
     url
   } = props.article
 
@@ -21,7 +22,7 @@ const ArticleItem = (props) => {
     title
       ? (
         <ArticleItemWrapper>
-          <Title>{title}</Title>
+          <Title dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }}></Title>
           <MetaDataWrapper>
             <MetaDataItem>{points}</MetaDataItem>
             <MetaDataItem>{author}</MetaDataItem>

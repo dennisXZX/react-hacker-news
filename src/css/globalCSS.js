@@ -9,6 +9,10 @@ const GlobalCSS = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
       background-color: #f9f9f2;
   }
+  
+  em {
+    background-color: yellow !important
+  }
 `
 
 export default GlobalCSS

@@ -5,7 +5,7 @@ export const ArticleItemWrapper = styled.div`
   padding: 10px 0;
 `
 
-export const Title = styled.div`
+export const Title = styled.h1`
   margin-bottom: 10px;
 `
 
