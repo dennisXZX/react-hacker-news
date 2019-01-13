@@ -1,14 +1,18 @@
 import styled from 'styled-components'
 
 export const HotSearchWrapper = styled.div`
-  position: absolute;
-  left: 500px;
-  top: 0;
-  width: 240px;
-  padding: 20px 20px 15px 20px;
-  box-shadow: 0 -5px 40px 0 rgba(236, 231, 231, 0.2), 20px 10px 30px 30px rgba(236, 231, 231, 0.2);
-  border-radius: 3px;
-  background-color: #fff;
+  display: none;
+
+  @media (min-width: 1140px) {
+    position: absolute;
+    left: 500px;
+    top: 0;
+    width: 240px;
+    padding: 20px 20px 15px 20px;
+    box-shadow: 0 -5px 40px 0 rgba(236, 231, 231, 0.2), 20px 10px 30px 30px rgba(236, 231, 231, 0.2);
+    border-radius: 3px;
+    background-color: #fff;
+  }  
 `
 
 export const Triangle = styled.span`
