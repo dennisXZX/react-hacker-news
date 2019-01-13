@@ -35,9 +35,9 @@ const hotSearchMouseLeave = () => ({
   type: HOT_SEARCH_MOUSE_LEAVE
 })
 
-const changeHotSearchPage = newCurrentPage => ({
+const changeHotSearchPage = newHotSearchPage => ({
   type: HOT_SEARCH_CHANGE_PAGE,
-  newCurrentPage
+  newCurrentPage: newHotSearchPage
 })
 
 const getHotSearchList = () => dispatch => {
@@ -54,15 +54,15 @@ const getHotSearchList = () => dispatch => {
 
 const debounceFetchArticleList = debounce(fetchArticleList, 300)
 
-const changeSearch = newSearchWord => dispatch => {
+const changeSearch = searchWord => dispatch => {
   dispatch({
     type: CHANGE_SEARCH,
-    newSearchWord
+    searchWord
   })
 
   const queryParams = {
     dispatch,
-    newSearchWord
+    searchWord
   }
 
   debounceFetchArticleList(queryParams);

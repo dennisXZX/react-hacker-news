@@ -10,7 +10,7 @@ import {
 class SearchBar extends Component {
   getListArea = () => {
     const {
-      currentPage,
+      currentHotSearchPage,
       isFocused,
       isHotSearchMouseIn,
       handleChangeHotSearchPage,
@@ -28,7 +28,7 @@ class SearchBar extends Component {
           handleHotSearchMouseLeave={handleHotSearchMouseLeave}
           handleChangeHotSearchPage={handleChangeHotSearchPage}
           handleHotSearchClick={handleHotSearchClick}
-          currentPage={currentPage}
+          currentHotSearchPage={currentHotSearchPage}
           totalPage={totalPage}
           hotSearchList={hotSearchList}
         />

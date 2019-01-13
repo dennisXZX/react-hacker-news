@@ -9,22 +9,22 @@ import {
 } from './headerActions'
 
 const defaultState = {
-  currentPage: 1,
-  currentSearch: '',
+  currentHotSearchPage: 1,
+  currentSearch: 'hello world',
   isFocused: false,
   isHotSearchMouseIn: false,
   hotSearchList: [],
   totalPage: 1
 }
 
-const handleSearchFocus = (state, action) => {
+const handleSearchFocus = (state) => {
   return {
     ...state,
     isFocused: true
   }
 }
 
-const handleSearchBlur = (state, action) => {
+const handleSearchBlur = (state) => {
   return {
     ...state,
     isFocused: false
@@ -39,14 +39,14 @@ const getHotSearchList = (state, action) => {
   }
 }
 
-const handleHotSearchMouseEnter = (state, action) => {
+const handleHotSearchMouseEnter = (state) => {
   return {
     ...state,
     isHotSearchMouseIn: true
   }
 }
 
-const handleHotSearchMouseLeave = (state, action) => {
+const handleHotSearchMouseLeave = (state) => {
   return {
     ...state,
     isHotSearchMouseIn: false
@@ -56,14 +56,14 @@ const handleHotSearchMouseLeave = (state, action) => {
 const handleHotSearchPageChange = (state, action) => {
   return {
     ...state,
-    currentPage: action.newCurrentPage
+    currentHotSearchPage: action.newCurrentPage
   }
 }
 
 const handleSearchChange = (state, action) => {
   return {
     ...state,
-    currentSearch: action.newSearchWord
+    currentSearch: action.searchWord
   }
 }
 

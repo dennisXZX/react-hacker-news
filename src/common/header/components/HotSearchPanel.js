@@ -11,7 +11,7 @@ import {
 class HotSearchPanel extends Component {
   getCurrentPageItems = () => {
     const {
-      currentPage,
+      currentHotSearchPage,
       handleHotSearchClick,
       hotSearchList
     } = this.props
@@ -19,7 +19,7 @@ class HotSearchPanel extends Component {
     const pageList = []
 
     if (hotSearchList.length) {
-      for (let i = (currentPage - 1) * 7; i < currentPage * 7; i++) {
+      for (let i = (currentHotSearchPage - 1) * 7; i < currentHotSearchPage * 7; i++) {
         pageList.push(
           <SearchInfoItem
             key={hotSearchList[i]}
@@ -39,7 +39,7 @@ class HotSearchPanel extends Component {
       handleChangeHotSearchPage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
-      currentPage,
+      currentHotSearchPage,
       totalPage
     } = this.props
 
@@ -50,7 +50,7 @@ class HotSearchPanel extends Component {
 
         <SearchInfoTitle>
           Hot Searches
-          <SearchInfoSwitch onClick={() => handleChangeHotSearchPage(currentPage, totalPage, this.spinIcon)}>
+          <SearchInfoSwitch onClick={() => handleChangeHotSearchPage(currentHotSearchPage, totalPage, this.spinIcon)}>
             <i className="iconfont spin" ref={(icon) => {this.spinIcon = icon}}>
               &#xe851;
             </i>

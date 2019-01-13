@@ -1,11 +1,13 @@
 import {
-  UPDATE_ARTICLE_LIST
+  UPDATE_ARTICLE_LIST,
+  UPDATE_ARTICLE_PAGE
 } from './searchPageActions'
 
 const defaultState = {
   articleList: [],
-  totalPage: 0,
-  articlePerPage: 20
+  articlePerPage: 20,
+  currentArticlePage: 0,
+  totalPage: 0
 }
 
 const updateArticleList = (state, action) => {
@@ -19,10 +21,21 @@ const updateArticleList = (state, action) => {
   }
 }
 
+const updateArticlePage = (state, action) => {
+  const { pageNum } = action
+
+  return {
+    ...state,
+    currentArticlePage: pageNum
+  }
+}
+
 export default (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_ARTICLE_LIST:
       return updateArticleList(state, action)
+    case UPDATE_ARTICLE_PAGE:
+      return updateArticlePage(state, action)
     default:
       return state
   }

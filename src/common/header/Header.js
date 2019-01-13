@@ -23,7 +23,7 @@ import {
 class Header extends Component {
   render () {
     const {
-      currentPage,
+      currentHotSearchPage,
       currentSearch,
       isFocused,
       isHotSearchMouseIn,
@@ -43,7 +43,7 @@ class Header extends Component {
         <Logo />
         <Nav>
           <SearchBar
-            currentPage={currentPage}
+            currentHotSearchPage={currentHotSearchPage}
             currentSearch={currentSearch}
             isFocused={isFocused}
             isHotSearchMouseIn={isHotSearchMouseIn}
@@ -67,7 +67,7 @@ const mapStateToProps = state => {
   return {
     isFocused: state.header.isFocused,
     hotSearchList: state.header.hotSearchList,
-    currentPage: state.header.currentPage,
+    currentHotSearchPage: state.header.currentHotSearchPage,
     currentSearch: state.header.currentSearch,
     totalPage: state.header.totalPage,
     isHotSearchMouseIn: state.header.isHotSearchMouseIn,
