@@ -5,7 +5,6 @@ export const SearchWrapper = styled.div`
   display: inline-block;
   
   .zoom {
-    cursor: pointer;
     position: absolute;
     right: 8px;
     bottom: 8px;
@@ -17,18 +16,13 @@ export const SearchWrapper = styled.div`
     color: #FF742B;
   }
   
-  .zoom:hover {
-    font-weight: bold;
-    background: #f0f0f0;
-  }
-  
   @media (min-width: 768px) {
     .zoom {
       transition: all 0.4s ease-out;
       transform: rotate(0deg);
   
       &.focused {
-        background: #f0f0f0;
+        background: #f6f6ef;
         transform: rotate(360deg);
       }
     }
@@ -42,7 +36,7 @@ export const NavSearch = styled.input`
   box-sizing: border-box;
   outline: none;
   border-radius: 32px;
-  background: #fff;
+  background: #fffff3;
   border: 1px solid #FF742B;
   font-size: 1.1rem;
   color: #666;
@@ -54,7 +48,7 @@ export const NavSearch = styled.input`
   
   @media (min-width: 768px) {
     &.focused {
-      width: 360px;
+      width: 480px;
     }
   }
 `

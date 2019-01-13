@@ -2,17 +2,18 @@ import styled from 'styled-components'
 
 export const HotSearchWrapper = styled.div`
   position: absolute;
-  left: 0;
+  left: 190px;
   top: 63px;
   width: 240px;
   padding: 20px 20px 15px 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, .2);
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.9);
 `
 
 export const SearchInfoTitle = styled.div`
   color: #969696;
   font-size: 1.1rem;
+
 `
 
 export const SearchInfoSwitch = styled.span`

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import ResetStyle from './resetStyle'
-import GlobalTypography from './globalTypography'
+import GlobalCSS from './globalCSS'
 import PaginationStyle from './paginationStyle'
 import IconFont from './iconfont/iconfont'
 
@@ -9,7 +9,7 @@ class GlobalStyle extends Component {
     return (
       <Fragment>
         <ResetStyle />
-        <GlobalTypography />
+        <GlobalCSS />
         <IconFont />
         <PaginationStyle />
       </Fragment>
