@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import ArticleList from './components/ArticleList'
 import Pagination from './components/Pagination'
 import Loading from '../../UI/Loading/LoadingSpinner'
+import ErrorMessage from '../../UI/Error/ErrorMessage'
 
 import {
   loadPageData
@@ -25,11 +26,18 @@ class SearchPage extends Component {
   render () {
     const {
       articleList,
+      error,
       currentArticlePage,
       currentSearch,
       isLoading,
       loadPageData
     } = this.props
+
+    if (error) {
+      return (
+        <ErrorMessage />
+      )
+    }
 
     if (isLoading) {
       return (
