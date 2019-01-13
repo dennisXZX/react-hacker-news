@@ -2,12 +2,24 @@ import styled from 'styled-components'
 
 export const HotSearchWrapper = styled.div`
   position: absolute;
-  left: 190px;
-  top: 63px;
+  left: 500px;
+  top: 0;
   width: 240px;
   padding: 20px 20px 15px 20px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
-  background-color: rgba(255,255,255,0.9);
+  box-shadow: 0 -5px 40px 0 rgba(236, 231, 231, 0.2), 20px 10px 30px 30px rgba(236, 231, 231, 0.2);
+  border-radius: 3px;
+  background-color: #fff;
+`
+
+export const Triangle = styled.span`
+    display: block;
+    position: absolute;
+    top: 13px;
+    left: -7px;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    transform: rotate(45deg);
 `
 
 export const SearchInfoTitle = styled.div`
@@ -19,8 +31,9 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.span`
   float: right;
   cursor: pointer;
-  font-size: 1rem;
-  
+  font-size: 0.8rem;
+  margin-top: 4px;
+
   &:hover {
     color: #555;
   }
@@ -30,7 +43,6 @@ export const SearchInfoSwitch = styled.span`
     float: left;
     font-size: 0.8rem;
     margin-right: 3px;
-    margin-top: 3px;
     transition: all .2s ease-in;
     transform: rotate(0deg);
     transform-origin: center center;

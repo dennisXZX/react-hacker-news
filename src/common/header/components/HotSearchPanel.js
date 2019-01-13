@@ -5,7 +5,8 @@ import {
   SearchInfoList,
   SearchInfoSwitch,
   SearchInfoTitle,
-  SearchInfoItem
+  SearchInfoItem,
+  Triangle
 } from './hotSearchPanelStyle'
 
 class HotSearchPanel extends Component {
@@ -48,6 +49,7 @@ class HotSearchPanel extends Component {
         onMouseEnter={handleHotSearchMouseEnter}
         onMouseLeave={handleHotSearchMouseLeave}>
 
+        <Triangle />
         <SearchInfoTitle>
           Hot Searches
           <SearchInfoSwitch onClick={() => handleChangeHotSearchPage(currentHotSearchPage, totalPage, this.spinIcon)}>
