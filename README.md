@@ -6,16 +6,16 @@ This project is deployed [here](https://www.dennisxiao.com/).
 
 ## Functionality
 This is a web application that contains the following main features:
-- Users can search Hacker News stories by keyword
+- Users can search Hacker News stories by keywords
 - Users can navigate search results via pagination
 - Users can use hot searches feature to quickly perform a search
 
 ## Technology
-- Code: `React, Redux, axios`
+- Code: `React (16.7.0), Redux (4.0.1)`
 - Styling: `styled-components`
 - Linting: `Eslint`
 - Testing: `Jest`
-- Build: `Create-React-App`
+- Build: `Create-React-App (Webpack)`
 - Deployment: `Heroku CLI`
 
 ## Development
@@ -27,11 +27,11 @@ Install project dependencies.
 
 - `yarn start`
 
-Run the app in the development mode on `http://localhost:3000/`.
+Run the app in development mode on `http://localhost:3000/`.
 
 - `yarn lint`
 
-Run the linting on the project using ESlint.
+Run linting on the project using ESlint.
 
 - `yarn test`
 
@@ -44,10 +44,10 @@ Build the app for production.
 ## APIs
 This project is based on HN Search public API available at https://hn.algolia.com/api. This API is a completely open API. No authentication is required to query and retrieve data.
 
-A mock API is also used to demonstrate hot searches feature. The API is situated in the `public/mockAPI` folder.
+A mock API is also used to demonstrate hot searches feature. The API is situated in the `public/mockAPI` folder in the project.
 
 ## Assumptions
-I have assumed that all data provided by HN Search API is sanitised. As the app relies on data provided by the above-mentioned API to achieve search highlighting.
+I have assumed that all data provided by HN Search API is sanitised. As the app relies on data provided by the above-mentioned API to achieve search result highlighting.
 
 ## Considerations
 I deliberately remove the search button from the app, instead, I use instant search feature to provide a smoother experience. The API call is debounced in order to reduce burden on the backend.
@@ -57,7 +57,7 @@ I deliberately remove the search button from the app, instead, I use instant sea
 
 - Stronger typing could be provided by using Flow/Typescript. Currently `PropTypes` is used due to time limitation.
 
-- Display article detail page when users click on any of the news result.
+- Display comment page when users click on the comment tag associated with the article.
 
 - Search history feature could be provided.
 
@@ -66,9 +66,3 @@ I deliberately remove the search button from the app, instead, I use instant sea
 - Error occurred during data fetching could be handled more elegantly. Currently the app only provides limited error handling (showing a simple error message)
 
 - Mobile UI design could be improved. Currently some features are not allowed on mobile view due to time limitation on designing the app.
-
-- UI could be definitely improved! (I'm not very satisfied with it to be honest)
-
-## FAQs
-- Why some of the features are not shown on mobile (like hot searches)?  
-Answer: Although I followed mobile-first design concept, I designed the app as I coded along due to time limitation and open-ended requirements. It's a bit of a struggle for me to come up with a decent mobile and desktop design in such a short time, so some of the features I could not make them right on all devices.
