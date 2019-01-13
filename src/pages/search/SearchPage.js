@@ -15,7 +15,6 @@ import {
   ResultWrapper
 } from './searchPageStyle'
 
-
 class SearchPage extends Component {
   componentDidMount () {
     const { loadPageData } = this.props
