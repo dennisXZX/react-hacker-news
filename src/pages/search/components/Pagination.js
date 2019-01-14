@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
+import PropTypes from 'prop-types'
 import {
   PaginationWrapper
 } from './paginationStyle'
@@ -27,5 +28,11 @@ const Pagination = ({
     />
   </PaginationWrapper>
 )
+
+Pagination.propTypes = {
+	loadPageData: PropTypes.func,
+	currentArticlePage: PropTypes.number,
+	currentSearch: PropTypes.string
+}
 
 export default Pagination

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -67,6 +68,15 @@ class SearchPage extends Component {
       </ResultWrapper>
     )
   }
+}
+
+SearchPage.propTypes = {
+	loadPageData: PropTypes.func,
+	articleList: PropTypes.array,
+	error: PropTypes.object,
+	currentArticlePage: PropTypes.number,
+	currentSearch: PropTypes.string,
+	isLoading: PropTypes.bool
 }
 
 const mapStateToProps = state => {

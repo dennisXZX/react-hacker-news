@@ -10,6 +10,7 @@ import {
   SearchInfoItem,
   Triangle
 } from './hotSearchPanelStyle'
+import PropTypes from 'prop-types'
 
 class HotSearchPanel extends Component {
   getCurrentPageItems = () => {
@@ -66,6 +67,16 @@ class HotSearchPanel extends Component {
       </HotSearchWrapper>
     )
   }
+}
+
+HotSearchPanel.propTypes = {
+	currentHotSearchPage: PropTypes.number,
+	handleChangeHotSearchPage: PropTypes.func,
+	handleHotSearchClick: PropTypes.func,
+	handleHotSearchMouseEnter: PropTypes.func,
+	handleHotSearchMouseLeave: PropTypes.func,
+	hotSearchList: PropTypes.array,
+	totalPage: PropTypes.number
 }
 
 export default HotSearchPanel

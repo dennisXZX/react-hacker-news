@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -68,6 +69,24 @@ class Header extends Component {
       </HeaderWrapper>
     )
   }
+}
+
+Header.propTypes = {
+	articleCount: PropTypes.number,
+	currentHotSearchPage: PropTypes.number,
+	currentSearch: PropTypes.string,
+	isFocused: PropTypes.bool,
+	isHotSearchMouseIn: PropTypes.bool,
+	handleChangeHotSearchPage: PropTypes.func,
+	handleHotSearchMouseEnter: PropTypes.func,
+	handleHotSearchMouseLeave: PropTypes.func,
+	handleHotSearchClick: PropTypes.func,
+	handleSearchFocus: PropTypes.func,
+	handleSearchBlur: PropTypes.func,
+	handleSearchChange: PropTypes.func,
+	hotSearchList: PropTypes.array,
+	processingTimeMS: PropTypes.number,
+	totalPage: PropTypes.number
 }
 
 const mapStateToProps = state => {

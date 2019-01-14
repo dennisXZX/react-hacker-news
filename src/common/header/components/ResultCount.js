@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { numberWithCommas } from '../../../utils/stringFormatter'
 
@@ -16,5 +17,11 @@ const ResultCount = ({ articleCount, processingTimeMS }) => {
     </ResultCountWrapper>
   )
 }
+
+ResultCount.propTypes = {
+	articleCount: PropTypes.number,
+	processingTimeMS: PropTypes.number
+}
+
 
 export default ResultCount

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
@@ -47,7 +48,10 @@ const ArticleItem = (props) => {
         </ArticleItemWrapper>
       ) : null
   )
+}
 
+ArticleItem.propTypes = {
+	article: PropTypes.object
 }
 
 export default ArticleItem

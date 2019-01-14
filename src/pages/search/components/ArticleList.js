@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import ArticleItem from './ArticleItem'
 
@@ -19,6 +20,10 @@ const ArticleList = (props) => {
       ))}
     </ArticleListWrapper>
   )
+}
+
+ArticleList.propTypes = {
+	articleList: PropTypes.array
 }
 
 export default ArticleList

@@ -6,6 +6,7 @@ import {
   NavSearch,
   SearchWrapper
 } from './searchBarStyle'
+import PropTypes from 'prop-types'
 
 class SearchBar extends Component {
   getListArea = () => {
@@ -67,6 +68,23 @@ class SearchBar extends Component {
       </SearchWrapper>
     )
   }
+}
+
+SearchBar.propTypes = {
+	articleCount: PropTypes.number,
+	currentHotSearchPage: PropTypes.number,
+	currentSearch: PropTypes.string,
+	isFocused: PropTypes.bool,
+	isHotSearchMouseIn: PropTypes.bool,
+	handleChangeHotSearchPage: PropTypes.func,
+	handleHotSearchMouseEnter: PropTypes.func,
+	handleHotSearchMouseLeave: PropTypes.func,
+	handleHotSearchClick: PropTypes.func,
+	handleSearchFocus: PropTypes.func,
+	handleSearchBlur: PropTypes.func,
+	handleSearchChange: PropTypes.func,
+	hotSearchList: PropTypes.array,
+	totalPage: PropTypes.number
 }
 
 export default SearchBar
