@@ -1,16 +1,10 @@
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import EnzymeAdapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 import ErrorMessage from '../../../UI/error/ErrorMessage'
 import { findByTestAttr } from '../../../utils/testUtils'
 
-Enzyme.configure({
-	adapter: new EnzymeAdapter()
-})
-
-const setup = (props = {}) => {
-	const wrapper = shallow(<ErrorMessage {...props} />)
-	return wrapper
+const setup = (propsOverrides = {}) => {
+	return shallow(<ErrorMessage {...propsOverrides} />)
 }
 
 test('renders the error message correctly', () => {

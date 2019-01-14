@@ -8,14 +8,8 @@ Enzyme.configure({
 	adapter: new EnzymeAdapter()
 })
 
-const setup = (props = {}, state = null) => {
-	const wrapper = shallow(<App {...props} />)
-
-	if (state) {
-		wrapper.setState(state)
-	}
-
-	return wrapper
+const setup = () => {
+	return shallow(<App />)
 }
 
 test('renders App without crashing', () => {

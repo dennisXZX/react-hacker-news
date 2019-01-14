@@ -5,7 +5,7 @@ import Loader from 'react-loader-spinner'
 import { LoadingSpinnerWrapper, LoadingText } from './loadingSpinnerStyle'
 
 const LoadingSpinner = ({ loadingText }) => (
-	<LoadingSpinnerWrapper>
+	<LoadingSpinnerWrapper data-test='component-loadingSpinner'>
 	  <Loader
 	    type='Watch'
 	    color='#FF742B'

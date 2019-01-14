@@ -12,7 +12,7 @@ const ResultCount = ({ articleCount, processingTimeMS }) => {
   const processingTimeFormatted = processingTimeMS / 1000
 
   return (
-    <ResultCountWrapper>
+    <ResultCountWrapper data-test='component-resultCount'>
       {articleCountFormatted} results ({processingTimeFormatted} seconds)
     </ResultCountWrapper>
   )
