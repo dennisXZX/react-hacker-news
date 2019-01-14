@@ -89,16 +89,16 @@ Header.propTypes = {
 	totalPage: PropTypes.number
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ header, searchPage }) => {
   return {
-    articleCount: state.searchPage.articleCount,
-    currentHotSearchPage: state.header.currentHotSearchPage,
-    currentSearch: state.header.currentSearch,
-    hotSearchList: state.header.hotSearchList,
-    isFocused: state.header.isFocused,
-    isHotSearchMouseIn: state.header.isHotSearchMouseIn,
-    processingTimeMS: state.searchPage.processingTimeMS,
-    totalPage: state.header.totalPage,
+    articleCount: searchPage.articleCount,
+    currentHotSearchPage: header.currentHotSearchPage,
+    currentSearch: header.currentSearch,
+    hotSearchList: header.hotSearchList,
+    isFocused: header.isFocused,
+    isHotSearchMouseIn: header.isHotSearchMouseIn,
+    processingTimeMS: searchPage.processingTimeMS,
+    totalPage: header.totalPage,
   }
 }
 

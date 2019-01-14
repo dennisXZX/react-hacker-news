@@ -43,7 +43,7 @@ class SearchPage extends Component {
 
 		if (isLoading) {
       return (
-        <Loading />
+        <Loading loadingText='Loading...' />
       )
     }
 
@@ -79,13 +79,13 @@ SearchPage.propTypes = {
 	isLoading: PropTypes.bool
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ header, searchPage }) => {
   return {
-    articleList: state.searchPage.articleList,
-    currentArticlePage: state.searchPage.currentArticlePage,
-    currentSearch: state.header.currentSearch,
-    isLoading: state.searchPage.isLoading,
-    error: state.searchPage.error
+    articleList: searchPage.articleList,
+    currentArticlePage: searchPage.currentArticlePage,
+    currentSearch: header.currentSearch,
+    isLoading: searchPage.isLoading,
+    error: searchPage.error
   }
 }
 

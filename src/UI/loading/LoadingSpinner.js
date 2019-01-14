@@ -1,22 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Loader from 'react-loader-spinner'
 
 import { LoadingSpinnerWrapper, LoadingText } from './loadingSpinnerStyle'
 
-class LoadingSpinner extends Component {
-  render () {
-    return (
-      <LoadingSpinnerWrapper>
-        <Loader
-          type='Watch'
-          color='#FF742B'
-          height='50'
-          width='50'
-        />
-        <LoadingText>Loading...</LoadingText>
-      </LoadingSpinnerWrapper>
-    )
-  }
+const LoadingSpinner = ({ loadingText }) => (
+	<LoadingSpinnerWrapper>
+	  <Loader
+	    type='Watch'
+	    color='#FF742B'
+	    height='50'
+	    width='50'
+	  />
+	  <LoadingText>{loadingText}</LoadingText>
+	</LoadingSpinnerWrapper>
+)
+
+LoadingSpinner.propTypes = {
+	loadingText: PropTypes.string
 }
 
 export default LoadingSpinner
