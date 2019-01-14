@@ -93,6 +93,6 @@ export const mapDispatchToProps = dispatch => ({
     handleSearchFocus,
     handleSearchChange
   }, dispatch)
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

@@ -50,11 +50,13 @@ A mock API is also used to demonstrate hot searches feature. The API is situated
 I have assumed that all data provided by HN Search API is sanitised. As the app relies on data provided by the above-mentioned API to achieve search result highlighting.
 
 ## Considerations
+I only use page-level components to talk to the store, while keeping all other components dumb. In this way, most of the components in this app are only responsible for rendering UI, thus the data flow is easy to reason about and manage. 
+
 I deliberately remove the search button from the app, instead, I use instant search feature to provide a smoother experience. The API call is debounced in order to reduce burden on the backend.
 
 The API would come back with no search result for certain keywords, which need to be handled properly. 
 
-Some website URLs coming back from API might be extremely long, which would cause a UI/UX problem without tidying up first. For now, a simple slice rule is applied for long URL.
+Some website URLs coming back from API would be extremely long, which would cause a UI/UX problem if not handled. For now, a simple slice rule is applied for long URL.
 
 ## Future Improvement
 - Sorting by all the criteria (type, order, date range) could be provided

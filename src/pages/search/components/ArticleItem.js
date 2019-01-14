@@ -13,7 +13,7 @@ const ArticleItem = (props) => {
   const {
     _highlightResult,
     author,
-	  created_at,
+		created_at,
     num_comments,
     points,
     title,
@@ -27,21 +27,21 @@ const ArticleItem = (props) => {
       ? (
         <ArticleItemWrapper>
           <Title
-	          href={url}
-	          target="_blank"
-	          rel="noopener noreferrer"
-	          dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }} />
+						href={url}
+						target="_blank"
+						rel="noopener noreferrer"
+						dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }} />
           <MetaDataWrapper>
             <MetaDataItem>{points} points</MetaDataItem>
             <MetaDataItem>{author}</MetaDataItem>
             <MetaDataItem>{distanceInWordsToNow(created_at)}</MetaDataItem>
             <MetaDataItem>{num_comments} comments</MetaDataItem>
             <MetaDataItem className="desktop-only">
-	            <a
-		            href={url}
-		            target="_blank"
-		            rel="noopener noreferrer"
-	            >({urlFormatted})</a>
+							<a
+								href={url}
+								target="_blank"
+								rel="noopener noreferrer"
+							>({urlFormatted})</a>
             </MetaDataItem>
           </MetaDataWrapper>
         </ArticleItemWrapper>

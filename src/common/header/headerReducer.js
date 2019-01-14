@@ -1,7 +1,7 @@
 import {
   SEARCH_FOCUS,
   SEARCH_BLUR,
-  GET_HOT_SEARCH_LIST,
+  UPDATE_HOT_SEARCH_LIST,
   HOT_SEARCH_MOUSE_ENTER,
   HOT_SEARCH_MOUSE_LEAVE,
   HOT_SEARCH_CHANGE_PAGE,
@@ -71,7 +71,7 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case CHANGE_SEARCH:
       return changeSearch(state, action)
-    case GET_HOT_SEARCH_LIST:
+    case UPDATE_HOT_SEARCH_LIST:
       return getHotSearchList(state, action)
     case HOT_SEARCH_MOUSE_ENTER:
       return handleHotSearchMouseEnter(state, action)

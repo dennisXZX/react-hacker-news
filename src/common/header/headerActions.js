@@ -7,14 +7,14 @@ import { fetchArticleList } from '../../pages/search/searchPageActions'
 
 export const SEARCH_FOCUS = 'Header@SEARCH_FOCUS'
 export const SEARCH_BLUR = 'Header@SEARCH_BLUR'
-export const GET_HOT_SEARCH_LIST = 'Header@GET_HOT_SEARCH_LIST'
+export const UPDATE_HOT_SEARCH_LIST = 'Header@UPDATE_HOT_SEARCH_LIST'
 export const HOT_SEARCH_MOUSE_ENTER = 'Header@HOT_SEARCH_MOUSE_ENTER'
 export const HOT_SEARCH_MOUSE_LEAVE = 'Header@HOT_SEARCH_MOUSE_LEAVE'
 export const HOT_SEARCH_CHANGE_PAGE = 'Header@HOT_SEARCH_CHANGE_PAGE'
 export const CHANGE_SEARCH = 'Header@CHANGE_SEARCH'
 
-const changeList = hotSearchList => ({
-  type: GET_HOT_SEARCH_LIST,
+const updateHotSearchList = hotSearchList => ({
+  type: UPDATE_HOT_SEARCH_LIST,
   hotSearchList,
   totalPage: Math.ceil(hotSearchList.length / 7)
 })
@@ -45,10 +45,7 @@ const getHotSearchList = () => dispatch => {
     .then(res => {
       const hotSearchList = res.data.hotSearchList
 
-      dispatch(changeList(hotSearchList))
-    })
-    .catch(err => {
-      console.log('Get hot search list error', err)
+      dispatch(updateHotSearchList(hotSearchList))
     })
 }
 
@@ -65,7 +62,7 @@ const changeSearch = searchWord => dispatch => {
     searchWord
   }
 
-  debounceFetchArticleList(queryParams);
+  debounceFetchArticleList(queryParams)
 }
 
 export const handleSearchFocus = hotSearchList => dispatch => {
