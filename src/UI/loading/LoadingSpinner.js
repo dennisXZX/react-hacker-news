@@ -6,13 +6,13 @@ import { LoadingSpinnerWrapper, LoadingText } from './loadingSpinnerStyle'
 
 const LoadingSpinner = ({ loadingText }) => (
 	<LoadingSpinnerWrapper data-test='component-loadingSpinner'>
-	  <Loader
-	    type='Watch'
-	    color='#FF742B'
-	    height='50'
-	    width='50'
-	  />
-	  <LoadingText>{loadingText}</LoadingText>
+		<Loader
+			type='Watch'
+			color='#FF742B'
+			height='50'
+			width='50'
+		/>
+		<LoadingText>{loadingText}</LoadingText>
 	</LoadingSpinnerWrapper>
 )
 

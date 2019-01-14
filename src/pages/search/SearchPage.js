@@ -9,43 +9,43 @@ import Loading from '../../UI/loading/LoadingSpinner'
 import ErrorMessage from '../../UI/error/ErrorMessage'
 
 import {
-  loadPageData
+	loadPageData
 } from './searchPageActions'
 
 import {
-  ResultWrapper
+	ResultWrapper
 } from './searchPageStyle'
 
 class SearchPage extends Component {
-  componentDidMount () {
-    const { loadPageData } = this.props
+	componentDidMount () {
+		const { loadPageData } = this.props
 
-    loadPageData('hello world')
-  }
+		loadPageData('hello world')
+	}
 
-  render () {
-    const {
-      articleList,
-      error,
-      currentArticlePage,
-      currentSearch,
-      isLoading,
-      loadPageData
-    } = this.props
+	render () {
+		const {
+			articleList,
+			error,
+			currentArticlePage,
+			currentSearch,
+			isLoading,
+			loadPageData
+		} = this.props
 
-    if (error) {
-      return (
-        <ErrorMessage
-          message='Sorry, something just went wrong...'
-        />
-      )
-    }
+		if (error) {
+			return (
+				<ErrorMessage
+					message='Sorry, something just went wrong...'
+				/>
+			)
+		}
 
 		if (isLoading) {
-      return (
-        <Loading loadingText='Loading...' />
-      )
-    }
+			return (
+				<Loading loadingText='Loading...'/>
+			)
+		}
 
 		if (articleList.length === 0) {
 			return (
@@ -55,19 +55,19 @@ class SearchPage extends Component {
 			)
 		}
 
-    return (
-      <ResultWrapper>
-        <ArticleList
-          articleList={articleList}
-        />
-        <Pagination
-          currentArticlePage={currentArticlePage}
-          currentSearch={currentSearch}
-          loadPageData={loadPageData}
-        />
-      </ResultWrapper>
-    )
-  }
+		return (
+			<ResultWrapper>
+				<ArticleList
+					articleList={articleList}
+				/>
+				<Pagination
+					currentArticlePage={currentArticlePage}
+					currentSearch={currentSearch}
+					loadPageData={loadPageData}
+				/>
+			</ResultWrapper>
+		)
+	}
 }
 
 SearchPage.propTypes = {
@@ -80,19 +80,19 @@ SearchPage.propTypes = {
 }
 
 const mapStateToProps = ({ header, searchPage }) => {
-  return {
-    articleList: searchPage.articleList,
-    currentArticlePage: searchPage.currentArticlePage,
-    currentSearch: header.currentSearch,
-    isLoading: searchPage.isLoading,
-    error: searchPage.error
-  }
+	return {
+		articleList: searchPage.articleList,
+		currentArticlePage: searchPage.currentArticlePage,
+		currentSearch: header.currentSearch,
+		isLoading: searchPage.isLoading,
+		error: searchPage.error
+	}
 }
 
 export const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators({
-    loadPageData
-  }, dispatch)
+	...bindActionCreators({
+		loadPageData
+	}, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
