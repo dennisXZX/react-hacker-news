@@ -42,8 +42,8 @@ const changeHotSearchPage = newHotSearchPage => ({
   newCurrentPage: newHotSearchPage
 })
 
-const getHotSearchList = () => dispatch => {
-  axios.get(MOCK_HOT_SEARCH_API)
+export const getHotSearchList = () => dispatch => {
+  return axios.get(MOCK_HOT_SEARCH_API)
     .then(res => {
       const hotSearchList = res.data.hotSearchList
 

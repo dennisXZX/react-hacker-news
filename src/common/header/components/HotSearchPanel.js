@@ -21,7 +21,10 @@ class HotSearchPanel extends Component {
     } = this.props
 
     if (hotSearchList.length) {
-			const pageList = hotSearchList.slice((currentHotSearchPage - 1) * HOT_SEARCH_PER_PAGE, currentHotSearchPage * HOT_SEARCH_PER_PAGE)
+			const pageList = hotSearchList.slice(
+				(currentHotSearchPage - 1) * HOT_SEARCH_PER_PAGE,
+				currentHotSearchPage * HOT_SEARCH_PER_PAGE
+			)
 
 	    return pageList.map(item => (
 				<SearchInfoItem
@@ -33,7 +36,7 @@ class HotSearchPanel extends Component {
 			))
     }
 
-    return <div>No hot searches dava available</div>
+    return <div>Preparing hot searches data...</div>
   }
 
   render () {

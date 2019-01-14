@@ -12,7 +12,7 @@ const setup = (propsOverrides = {}) => {
 	return shallow(<ArticleList {...setupProps} />)
 }
 
-test('renders the article list correctly', () => {
+test('should render the article list correctly', () => {
 	const wrapper = setup()
 	const component = wrapper.find('ArticleItem')
 	expect(component.length).toBe(20)

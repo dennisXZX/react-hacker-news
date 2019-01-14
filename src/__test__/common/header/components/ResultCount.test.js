@@ -7,7 +7,7 @@ const setup = (propsOverrides = {}) => {
 	return shallow(<ResultCount {...propsOverrides} />)
 }
 
-test('renders the error message correctly', () => {
+test('should render the error message correctly', () => {
 	const wrapper = setup({
 		articleCount: 10,
 		processingTimeMS: 2
