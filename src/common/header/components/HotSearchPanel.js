@@ -70,13 +70,13 @@ class HotSearchPanel extends Component {
 }
 
 HotSearchPanel.propTypes = {
-	currentHotSearchPage: PropTypes.number,
-	handleChangeHotSearchPage: PropTypes.func,
-	handleHotSearchClick: PropTypes.func,
-	handleHotSearchMouseEnter: PropTypes.func,
-	handleHotSearchMouseLeave: PropTypes.func,
-	hotSearchList: PropTypes.array,
-	totalPage: PropTypes.number
+	currentHotSearchPage: PropTypes.number.isRequired,
+	handleChangeHotSearchPage: PropTypes.func.isRequired,
+	handleHotSearchClick: PropTypes.func.isRequired,
+	handleHotSearchMouseEnter: PropTypes.func.isRequired,
+	handleHotSearchMouseLeave: PropTypes.func.isRequired,
+	hotSearchList: PropTypes.array.isRequired,
+	totalPage: PropTypes.number.isRequired
 }
 
 export default HotSearchPanel

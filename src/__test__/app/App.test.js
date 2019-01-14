@@ -2,6 +2,7 @@ import React from 'react'
 import Enzyme, { shallow } from 'enzyme'
 import EnzymeAdapter from 'enzyme-adapter-react-16'
 import App from '../../app/App'
+import { findByTestAttr } from '../../utils/testUtils'
 
 Enzyme.configure({
 	adapter: new EnzymeAdapter()
@@ -15,10 +16,6 @@ const setup = (props = {}, state = null) => {
 	}
 
 	return wrapper
-}
-
-const findByTestAttr = (wrapper, val) => {
-	return wrapper.find(`[data-test="${val}"]`)
 }
 
 test('renders App without crashing', () => {

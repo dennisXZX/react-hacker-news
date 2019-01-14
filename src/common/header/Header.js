@@ -72,21 +72,21 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-	articleCount: PropTypes.number,
-	currentHotSearchPage: PropTypes.number,
-	currentSearch: PropTypes.string,
-	isFocused: PropTypes.bool,
-	isHotSearchMouseIn: PropTypes.bool,
-	handleChangeHotSearchPage: PropTypes.func,
-	handleHotSearchMouseEnter: PropTypes.func,
-	handleHotSearchMouseLeave: PropTypes.func,
-	handleHotSearchClick: PropTypes.func,
-	handleSearchFocus: PropTypes.func,
-	handleSearchBlur: PropTypes.func,
-	handleSearchChange: PropTypes.func,
-	hotSearchList: PropTypes.array,
-	processingTimeMS: PropTypes.number,
-	totalPage: PropTypes.number
+	articleCount: PropTypes.number.isRequired,
+	currentHotSearchPage: PropTypes.number.isRequired,
+	currentSearch: PropTypes.string.isRequired,
+	isFocused: PropTypes.bool.isRequired,
+	isHotSearchMouseIn: PropTypes.bool.isRequired,
+	handleChangeHotSearchPage: PropTypes.func.isRequired,
+	handleHotSearchMouseEnter: PropTypes.func.isRequired,
+	handleHotSearchMouseLeave: PropTypes.func.isRequired,
+	handleHotSearchClick: PropTypes.func.isRequired,
+	handleSearchFocus: PropTypes.func.isRequired,
+	handleSearchBlur: PropTypes.func.isRequired,
+	handleSearchChange: PropTypes.func.isRequired,
+	hotSearchList: PropTypes.array.isRequired,
+	processingTimeMS: PropTypes.number.isRequired,
+	totalPage: PropTypes.number.isRequired
 }
 
 const mapStateToProps = ({ header, searchPage }) => {

@@ -71,12 +71,12 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-	loadPageData: PropTypes.func,
-	articleList: PropTypes.array,
+	loadPageData: PropTypes.func.isRequired,
+	articleList: PropTypes.array.isRequired,
 	error: PropTypes.object,
-	currentArticlePage: PropTypes.number,
-	currentSearch: PropTypes.string,
-	isLoading: PropTypes.bool
+	currentArticlePage: PropTypes.number.isRequired,
+	currentSearch: PropTypes.string.isRequired,
+	isLoading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = ({ header, searchPage }) => {

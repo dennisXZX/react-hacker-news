@@ -51,7 +51,7 @@ const ArticleItem = (props) => {
 }
 
 ArticleItem.propTypes = {
-	article: PropTypes.object
+	article: PropTypes.object.isRequired
 }
 
 export default ArticleItem

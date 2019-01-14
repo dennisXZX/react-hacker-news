@@ -5,7 +5,7 @@ import { ErrorWrapper, ErrorText } from './errorStyle'
 
 const ErrorMessage = ({ message }) => {
   return (
-    <ErrorWrapper>
+    <ErrorWrapper data-test='component-errorWrapper'>
       <ErrorText>{message}</ErrorText>
     </ErrorWrapper>
   )

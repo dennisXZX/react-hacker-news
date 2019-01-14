@@ -30,9 +30,9 @@ const Pagination = ({
 )
 
 Pagination.propTypes = {
-	loadPageData: PropTypes.func,
-	currentArticlePage: PropTypes.number,
-	currentSearch: PropTypes.string
+	loadPageData: PropTypes.func.isRequired,
+	currentArticlePage: PropTypes.number.isRequired,
+	currentSearch: PropTypes.string.isRequired
 }
 
 export default Pagination

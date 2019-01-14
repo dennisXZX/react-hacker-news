@@ -23,7 +23,7 @@ const ArticleList = (props) => {
 }
 
 ArticleList.propTypes = {
-	articleList: PropTypes.array
+	articleList: PropTypes.array.isRequired
 }
 
 export default ArticleList

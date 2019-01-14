@@ -19,8 +19,8 @@ const ResultCount = ({ articleCount, processingTimeMS }) => {
 }
 
 ResultCount.propTypes = {
-	articleCount: PropTypes.number,
-	processingTimeMS: PropTypes.number
+	articleCount: PropTypes.number.isRequired,
+	processingTimeMS: PropTypes.number.isRequired
 }
 
 
