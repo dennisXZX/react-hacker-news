@@ -5,6 +5,8 @@ import { MOCK_HOT_SEARCH_API } from '../../constants/apiURL'
 
 import { fetchArticleList } from '../../pages/search/searchPageActions'
 
+export const HOT_SEARCH_PER_PAGE = 7
+
 export const SEARCH_FOCUS = 'Header@SEARCH_FOCUS'
 export const SEARCH_BLUR = 'Header@SEARCH_BLUR'
 export const UPDATE_HOT_SEARCH_LIST = 'Header@UPDATE_HOT_SEARCH_LIST'
@@ -16,7 +18,7 @@ export const CHANGE_SEARCH = 'Header@CHANGE_SEARCH'
 const updateHotSearchList = hotSearchList => ({
   type: UPDATE_HOT_SEARCH_LIST,
   hotSearchList,
-  totalPage: Math.ceil(hotSearchList.length / 7)
+  totalPage: Math.ceil(hotSearchList.length / HOT_SEARCH_PER_PAGE)
 })
 
 const searchFocus = () => ({

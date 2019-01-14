@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { HOT_SEARCH_PER_PAGE} from '../headerActions'
+
 import {
   HotSearchWrapper,
   SearchInfoList,
@@ -17,22 +19,20 @@ class HotSearchPanel extends Component {
       hotSearchList
     } = this.props
 
-    const pageList = []
-
     if (hotSearchList.length) {
-      for (let i = (currentHotSearchPage - 1) * 7; i < currentHotSearchPage * 7; i++) {
-        pageList.push(
-          <SearchInfoItem
-            key={hotSearchList[i]}
-            onClick={() => handleHotSearchClick(hotSearchList[i])}
-          >
-            {hotSearchList[i]}
-          </SearchInfoItem>
-        )
-      }
+			const pageList = hotSearchList.slice((currentHotSearchPage - 1) * HOT_SEARCH_PER_PAGE, currentHotSearchPage * HOT_SEARCH_PER_PAGE)
+
+	    return pageList.map(item => (
+				<SearchInfoItem
+					key={item}
+					onClick={() => handleHotSearchClick(item)}
+				>
+					{item}
+				</SearchInfoItem>
+			))
     }
 
-    return pageList
+    return <div>No hot searches dava available</div>
   }
 
   render () {
