@@ -14,7 +14,7 @@ This is a web application that contains the following main features:
 - Code: `React (16.7.0), Redux (4.0.1), date-fns, axios`
 - Styling: `styled-components`
 - Linting: `Eslint`
-- Testing: `Jest`
+- Testing: `Jest, Enzyme`
 - Build: `Create-React-App (Webpack)`
 - Deployment: `Heroku CLI`
 
@@ -61,7 +61,7 @@ Some website URLs coming back from API would be extremely long, which would caus
 ## Future Improvement
 - Sorting by all the criteria (type, order, date range) could be provided
 
-- Stronger typing could be provided by using Flow/Typescript. Currently `PropTypes` is used due to time limitation.
+- Stronger typing could be provided by using Flow/Typescript. Currently only `PropTypes` is used and no shape of data coming from the API is defined due to time limitation. 
 
 - Display comment page when users click on the comment tag associated with the article.
 

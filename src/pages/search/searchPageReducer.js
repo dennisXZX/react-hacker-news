@@ -30,9 +30,7 @@ const updateArticleList = (state, action) => {
   }
 }
 
-const updateArticlePage = (state, action) => {
-  const { pageNum } = action
-
+const updateArticlePage = (state, { pageNum }) => {
   return {
     ...state,
     currentArticlePage: pageNum
@@ -46,9 +44,7 @@ const updateArticleListStart = (state) => {
   }
 }
 
-const updateArticleListFail = (state, action) => {
-  const { error } = action
-
+const updateArticleListFail = (state, { error } ) => {
   return {
     ...state,
     isLoading: false,

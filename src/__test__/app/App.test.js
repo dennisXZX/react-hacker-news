@@ -1,31 +1,26 @@
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
-import EnzymeAdapter from 'enzyme-adapter-react-16'
+import { shallow } from 'enzyme'
 import App from '../../app/App'
 import { findByTestAttr } from '../../utils/testUtils'
-
-Enzyme.configure({
-	adapter: new EnzymeAdapter()
-})
 
 const setup = () => {
 	return shallow(<App />)
 }
 
-test('renders App without crashing', () => {
-	const wrapper = setup()
-	const appComponent = findByTestAttr(wrapper, 'component-app')
-	expect(appComponent.length).toBe(1)
-})
+describe('render child components correctly', () => {
+	let wrapper
 
-test('renders Header', () => {
-	const wrapper = setup()
-	const headerComponent = findByTestAttr(wrapper, 'component-header')
-	expect(headerComponent.length).toBe(1)
-})
+	beforeEach(() => {
+		wrapper = setup()
+	})
 
-test('renders SearchPage', () => {
-	const wrapper = setup()
-	const searchPageComponent = findByTestAttr(wrapper, 'component-searchPage')
-	expect(searchPageComponent.length).toBe(1)
+	test('renders Header', () => {
+		const headerComponent = findByTestAttr(wrapper, 'component-header')
+		expect(headerComponent.length).toBe(1)
+	})
+
+	test('renders SearchPage', () => {
+		const searchPageComponent = findByTestAttr(wrapper, 'component-searchPage')
+		expect(searchPageComponent.length).toBe(1)
+	})
 })
