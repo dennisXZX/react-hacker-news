@@ -43,12 +43,11 @@ const changeHotSearchPage = newHotSearchPage => ({
 })
 
 export const getHotSearchList = () => dispatch => {
-  return axios.get(MOCK_HOT_SEARCH_API)
-    .then(res => {
-      const hotSearchList = res.data.hotSearchList
+  return axios.get(MOCK_HOT_SEARCH_API).then(res => {
+    const hotSearchList = res.data.hotSearchList
 
-      dispatch(updateHotSearchList(hotSearchList))
-    })
+    dispatch(updateHotSearchList(hotSearchList))
+  })
 }
 
 const debounceFetchArticleList = debounce(fetchArticleList, 400)
@@ -68,7 +67,7 @@ const changeSearch = searchWord => dispatch => {
 }
 
 export const handleSearchFocus = hotSearchList => dispatch => {
-  (hotSearchList.length <= 0) && dispatch(getHotSearchList())
+  hotSearchList.length <= 0 && dispatch(getHotSearchList())
 
   dispatch(searchFocus())
 }
@@ -85,8 +84,12 @@ export const handleHotSearchMouseLeave = () => dispatch => {
   dispatch(hotSearchMouseLeave())
 }
 
-export const handleChangeHotSearchPage = (currentPage, totalPage, spinIcon) => dispatch => {
-  const originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '')
+export const handleChangeHotSearchPage = (
+  currentPage,
+  totalPage,
+  spinIcon
+) => dispatch => {
+  const originAngle = spinIcon.style.transform.replace(/[^0-9]/gi, '')
   const originAngleNum = originAngle ? parseInt(originAngle, 10) : 0
   spinIcon.style.transform = `rotate(${originAngleNum + 360}deg)`
 

@@ -7,15 +7,15 @@ import Header from '../common/header/Header'
 import SearchPage from '../pages/search/SearchPage'
 
 class App extends Component {
-	render() {
-		return (
-			<Provider store={store}>
-				<GlobalStyle />
-				<Header data-test="component-header" />
-				<SearchPage data-test="component-searchPage" />
-			</Provider>
-		)
-	}
+  render() {
+    return (
+      <Provider store={store}>
+        <GlobalStyle />
+        <Header data-test="component-header" />
+        <SearchPage data-test="component-searchPage" />
+      </Provider>
+    )
+  }
 }
 
 export default App

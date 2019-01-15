@@ -1,15 +1,9 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 import PropTypes from 'prop-types'
-import {
-  PaginationWrapper
-} from './paginationStyle'
+import { PaginationWrapper } from './paginationStyle'
 
-const Pagination = ({
-    currentArticlePage,
-    currentSearch,
-    loadPageData
-  }) => (
+const Pagination = ({ currentArticlePage, currentSearch, loadPageData }) => (
   <PaginationWrapper>
     <ReactPaginate
       activeClassName="paginationActive"
@@ -19,7 +13,7 @@ const Pagination = ({
       marginPagesDisplayed={1}
       nextClassName="paginationNext"
       nextLabel=">"
-      onPageChange={(pageObj) => loadPageData(currentSearch, pageObj.selected)}
+      onPageChange={pageObj => loadPageData(currentSearch, pageObj.selected)}
       pageCount={30}
       pageRangeDisplayed={2}
       pageClassName="paginationPage"
@@ -30,9 +24,9 @@ const Pagination = ({
 )
 
 Pagination.propTypes = {
-	loadPageData: PropTypes.func.isRequired,
-	currentArticlePage: PropTypes.number.isRequired,
-	currentSearch: PropTypes.string.isRequired
+  loadPageData: PropTypes.func.isRequired,
+  currentArticlePage: PropTypes.number.isRequired,
+  currentSearch: PropTypes.string.isRequired
 }
 
 export default Pagination

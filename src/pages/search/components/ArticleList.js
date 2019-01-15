@@ -3,27 +3,22 @@ import PropTypes from 'prop-types'
 
 import ArticleItem from './ArticleItem'
 
-import {
-  ArticleListWrapper
-} from './articleListStyle'
+import { ArticleListWrapper } from './articleListStyle'
 
-const ArticleList = (props) => {
+const ArticleList = props => {
   const { articleList } = props
 
   return (
     <ArticleListWrapper>
       {articleList.map(article => (
-        <ArticleItem
-          key={article.objectID}
-          article={article}
-        />
+        <ArticleItem key={article.objectID} article={article} />
       ))}
     </ArticleListWrapper>
   )
 }
 
 ArticleList.propTypes = {
-	articleList: PropTypes.array.isRequired
+  articleList: PropTypes.array.isRequired
 }
 
 export default ArticleList

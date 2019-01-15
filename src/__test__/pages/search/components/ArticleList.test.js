@@ -4,16 +4,16 @@ import ArticleList from '../../../../pages/search/components/ArticleList'
 import { mockArticleList } from '../../../dataProviders/mockArticleList'
 
 const defaultProps = {
-	articleList: mockArticleList
+  articleList: mockArticleList
 }
 
 const setup = (propsOverrides = {}) => {
-	const setupProps = { ...defaultProps, ...propsOverrides }
-	return shallow(<ArticleList {...setupProps} />)
+  const setupProps = { ...defaultProps, ...propsOverrides }
+  return shallow(<ArticleList {...setupProps} />)
 }
 
 test('should render the article list correctly', () => {
-	const wrapper = setup()
-	const component = wrapper.find('ArticleItem')
-	expect(component.length).toBe(20)
+  const wrapper = setup()
+  const component = wrapper.find('ArticleItem')
+  expect(component.length).toBe(20)
 })

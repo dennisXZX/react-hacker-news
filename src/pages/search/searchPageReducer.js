@@ -17,7 +17,13 @@ const defaultState = {
 }
 
 const updateArticleList = (state, action) => {
-  const { articleList, articlePerPage, totalPage, articleCount, processingTimeMS } = action
+  const {
+    articleList,
+    articlePerPage,
+    totalPage,
+    articleCount,
+    processingTimeMS
+  } = action
 
   return {
     ...state,
@@ -37,14 +43,14 @@ const updateArticlePage = (state, { pageNum }) => {
   }
 }
 
-const updateArticleListStart = (state) => {
+const updateArticleListStart = state => {
   return {
     ...state,
     isLoading: true
   }
 }
 
-const updateArticleListFail = (state, { error } ) => {
+const updateArticleListFail = (state, { error }) => {
   return {
     ...state,
     isLoading: false,

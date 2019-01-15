@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div`
   height: 90px;
   z-index: 1;
   border-bottom: 1px solid #c2c2c2;
-  
+
   @media (min-width: 1140px) {
     width: 1140px;
     margin: 0 auto;

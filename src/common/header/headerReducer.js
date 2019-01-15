@@ -17,14 +17,14 @@ const defaultState = {
   totalPage: 1
 }
 
-const handleSearchFocus = (state) => {
+const handleSearchFocus = state => {
   return {
     ...state,
     isFocused: true
   }
 }
 
-const handleSearchBlur = (state) => {
+const handleSearchBlur = state => {
   return {
     ...state,
     isFocused: false
@@ -39,14 +39,14 @@ const getHotSearchList = (state, action) => {
   }
 }
 
-const handleHotSearchMouseEnter = (state) => {
+const handleHotSearchMouseEnter = state => {
   return {
     ...state,
     isHotSearchMouseIn: true
   }
 }
 
-const handleHotSearchMouseLeave = (state) => {
+const handleHotSearchMouseLeave = state => {
   return {
     ...state,
     isHotSearchMouseIn: false

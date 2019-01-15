@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 
 import HotSearchPanel from './HotSearchPanel'
 
-import {
-  NavSearch,
-  SearchWrapper
-} from './searchBarStyle'
+import { NavSearch, SearchWrapper } from './searchBarStyle'
 import PropTypes from 'prop-types'
 
 class SearchBar extends Component {
@@ -37,9 +34,9 @@ class SearchBar extends Component {
     } else {
       return null
     }
-  }
+  };
 
-  render () {
+  render() {
     const {
       currentSearch,
       isFocused,
@@ -56,7 +53,7 @@ class SearchBar extends Component {
           onFocus={() => handleSearchFocus(hotSearchList)}
           onBlur={handleSearchBlur}
           onChange={handleSearchChange}
-          placeholder='Search...'
+          placeholder="Search..."
           value={currentSearch}
         />
 
@@ -71,19 +68,19 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-	currentHotSearchPage: PropTypes.number.isRequired,
-	currentSearch: PropTypes.string.isRequired,
-	isFocused: PropTypes.bool.isRequired,
-	isHotSearchMouseIn: PropTypes.bool.isRequired,
-	handleChangeHotSearchPage: PropTypes.func.isRequired,
-	handleHotSearchMouseEnter: PropTypes.func.isRequired,
-	handleHotSearchMouseLeave: PropTypes.func.isRequired,
-	handleHotSearchClick: PropTypes.func.isRequired,
-	handleSearchFocus: PropTypes.func.isRequired,
-	handleSearchBlur: PropTypes.func.isRequired,
-	handleSearchChange: PropTypes.func.isRequired,
-	hotSearchList: PropTypes.array.isRequired,
-	totalPage: PropTypes.number.isRequired
+  currentHotSearchPage: PropTypes.number.isRequired,
+  currentSearch: PropTypes.string.isRequired,
+  isFocused: PropTypes.bool.isRequired,
+  isHotSearchMouseIn: PropTypes.bool.isRequired,
+  handleChangeHotSearchPage: PropTypes.func.isRequired,
+  handleHotSearchMouseEnter: PropTypes.func.isRequired,
+  handleHotSearchMouseLeave: PropTypes.func.isRequired,
+  handleHotSearchClick: PropTypes.func.isRequired,
+  handleSearchFocus: PropTypes.func.isRequired,
+  handleSearchBlur: PropTypes.func.isRequired,
+  handleSearchChange: PropTypes.func.isRequired,
+  hotSearchList: PropTypes.array.isRequired,
+  totalPage: PropTypes.number.isRequired
 }
 
 export default SearchBar

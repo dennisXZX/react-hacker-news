@@ -31,15 +31,20 @@ const fetchArticleListStart = () => ({
   type: UPDATE_ARTICLE_LIST_START
 })
 
-const fetchArticleListFail = (error) => ({
+const fetchArticleListFail = error => ({
   type: UPDATE_ARTICLE_LIST_FAIL,
   error
 })
 
-export const fetchArticleList = ({ dispatch, searchWord = '', pageNum = 0 }) => {
+export const fetchArticleList = ({
+  dispatch,
+  searchWord = '',
+  pageNum = 0
+}) => {
   dispatch(fetchArticleListStart())
 
-  axios.get(`${BASE_HACKER_NEWS_API}query=${searchWord}&page=${pageNum}`)
+  axios
+    .get(`${BASE_HACKER_NEWS_API}query=${searchWord}&page=${pageNum}`)
     .then(res => {
       const { hits, nbPages, hitsPerPage, nbHits, processingTimeMS } = res.data
 
