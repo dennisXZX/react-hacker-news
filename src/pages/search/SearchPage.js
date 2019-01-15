@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import ArticleList from './components/ArticleList'
+import ResultList from './components/ResultList'
 import Pagination from './components/Pagination'
 import Loading from '../../UI/loading/LoadingSpinner'
 import ErrorMessage from '../../UI/error/ErrorMessage'
@@ -45,7 +45,7 @@ class SearchPage extends Component {
 
     return (
       <ResultWrapper>
-        <ArticleList articleList={articleList} />
+        <ResultList articleList={articleList} />
         <Pagination
           currentArticlePage={currentArticlePage}
           currentSearch={currentSearch}

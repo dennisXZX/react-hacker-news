@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
-export const ArticleListWrapper = styled.div`
+export const ResultListWrapper = styled.div`
   padding: 10px 20px;
 `

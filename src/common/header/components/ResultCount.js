@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { numberWithCommas } from '../../../utils/stringFormatter'
+import { formatNumWithComma } from '../../../utils/stringFormatter'
 
 import { ResultCountWrapper } from './resultCountStyle'
 
 const ResultCount = ({ articleCount, processingTimeMS }) => {
-  const articleCountFormatted = numberWithCommas(articleCount)
+  const articleCountFormatted = formatNumWithComma(articleCount)
   const processingTimeFormatted = processingTimeMS / 1000
 
   return (

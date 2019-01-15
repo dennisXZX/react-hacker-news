@@ -2,15 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import { formatUrl } from '../../../utils/stringFormatter'
 
 import {
-  ArticleItemWrapper,
+  ResultItemWrapper,
   Title,
   MetaDataWrapper,
   MetaDataItem
-} from './articleItemStyle'
+} from './resultItemStyle'
 
-const ArticleItem = props => {
+const ResultItemArticle = props => {
   const {
     _highlightResult,
     author,
@@ -21,11 +22,8 @@ const ArticleItem = props => {
     url
   } = props.article
 
-  const urlFormatted =
-    url && url.length > 120 ? `${url.slice(0, 100)}...` : url
-
   return title ? (
-    <ArticleItemWrapper>
+    <ResultItemWrapper>
       <Title
         href={url}
         target="_blank"
@@ -39,16 +37,16 @@ const ArticleItem = props => {
         <MetaDataItem>{num_comments} comments</MetaDataItem>
         <MetaDataItem className="desktop-only">
           <a href={url} target="_blank" rel="noopener noreferrer">
-            ({urlFormatted})
+            ({url ? formatUrl(url) : 'no url available'})
           </a>
         </MetaDataItem>
       </MetaDataWrapper>
-    </ArticleItemWrapper>
+    </ResultItemWrapper>
   ) : null
 }
 
-ArticleItem.propTypes = {
+ResultItemArticle.propTypes = {
   article: PropTypes.object.isRequired
 }
 
-export default ArticleItem
+export default ResultItemArticle

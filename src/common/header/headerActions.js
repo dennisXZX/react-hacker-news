@@ -50,7 +50,7 @@ export const getHotSearchList = () => dispatch => {
   })
 }
 
-const debounceFetchArticleList = debounce(fetchArticleList, 400)
+const debounceFetchArticleList = debounce(fetchArticleList, 600)
 
 const changeSearch = searchWord => dispatch => {
   dispatch({

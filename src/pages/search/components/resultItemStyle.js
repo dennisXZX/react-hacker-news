@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ArticleItemWrapper = styled.div`
+export const ResultItemWrapper = styled.div`
   border-bottom: solid 1px #eee;
   padding: 13px 0;
 `

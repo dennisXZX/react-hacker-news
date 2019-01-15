@@ -54,6 +54,8 @@ I only use page-level components to talk to the store, while keeping all other c
 
 I deliberately remove the search button from the app, instead, I use instant search feature to provide a smoother experience. The API call is debounced in order to reduce burden on the backend.
 
+The API would provide article or story in the same data set. I separate them into two distinct React components. The rationale behind this is we might differentiate them further in the future, so separating them from the beginning would make it more flexible.
+
 The API would come back with no search result for certain keywords, which need to be handled properly. 
 
 Some website URLs coming back from API would be extremely long, which would cause a UI/UX problem if not handled. For now, a simple slice rule is applied for long URL.
