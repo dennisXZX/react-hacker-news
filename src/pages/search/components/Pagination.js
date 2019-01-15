@@ -3,13 +3,13 @@ import ReactPaginate from 'react-paginate'
 import PropTypes from 'prop-types'
 import { PaginationWrapper } from './paginationStyle'
 
-const Pagination = ({ currentArticlePage, currentSearch, loadPageData }) => (
+const Pagination = ({ currentResultPage, currentSearch, loadPageData }) => (
   <PaginationWrapper>
     <ReactPaginate
       activeClassName="paginationActive"
       breakClassName="paginationBreak"
       containerClassName="paginationContainer"
-      forcePage={currentArticlePage}
+      forcePage={currentResultPage}
       marginPagesDisplayed={1}
       nextClassName="paginationNext"
       nextLabel=">"
@@ -25,7 +25,7 @@ const Pagination = ({ currentArticlePage, currentSearch, loadPageData }) => (
 
 Pagination.propTypes = {
   loadPageData: PropTypes.func.isRequired,
-  currentArticlePage: PropTypes.number.isRequired,
+  currentResultPage: PropTypes.number.isRequired,
   currentSearch: PropTypes.string.isRequired
 }
 

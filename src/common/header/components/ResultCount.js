@@ -5,19 +5,19 @@ import { formatNumWithComma } from '../../../utils/stringFormatter'
 
 import { ResultCountWrapper } from './resultCountStyle'
 
-const ResultCount = ({ articleCount, processingTimeMS }) => {
-  const articleCountFormatted = formatNumWithComma(articleCount)
+const ResultCount = ({ resultCount, processingTimeMS }) => {
+  const resultCountFormatted = formatNumWithComma(resultCount)
   const processingTimeFormatted = processingTimeMS / 1000
 
   return (
     <ResultCountWrapper data-test="component-resultCount">
-      {articleCountFormatted} results ({processingTimeFormatted} seconds)
+      {resultCountFormatted} results ({processingTimeFormatted} seconds)
     </ResultCountWrapper>
   )
 }
 
 ResultCount.propTypes = {
-  articleCount: PropTypes.number.isRequired,
+  resultCount: PropTypes.number.isRequired,
   processingTimeMS: PropTypes.number.isRequired
 }
 

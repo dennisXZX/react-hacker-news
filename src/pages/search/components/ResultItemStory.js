@@ -18,7 +18,7 @@ const ResultItemStory = props => {
     created_at,
     story_title,
     story_url
-  } = props.article
+  } = props.result
 
   return story_title ? (
     <ResultItemWrapper>
@@ -42,7 +42,7 @@ const ResultItemStory = props => {
 }
 
 ResultItemStory.propTypes = {
-  article: PropTypes.object.isRequired
+  result: PropTypes.object.isRequired
 }
 
 export default ResultItemStory

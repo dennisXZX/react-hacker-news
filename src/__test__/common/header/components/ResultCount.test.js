@@ -9,7 +9,7 @@ const setup = (propsOverrides = {}) => {
 
 test('should render the error message correctly', () => {
   const wrapper = setup({
-    articleCount: 10,
+    resultCount: 10,
     processingTimeMS: 2
   })
 

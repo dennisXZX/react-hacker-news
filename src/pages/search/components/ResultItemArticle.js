@@ -20,7 +20,7 @@ const ResultItemArticle = props => {
     points,
     title,
     url
-  } = props.article
+  } = props.result
 
   return title ? (
     <ResultItemWrapper>
@@ -31,10 +31,10 @@ const ResultItemArticle = props => {
         dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }}
       />
       <MetaDataWrapper>
-        <MetaDataItem>{points} points</MetaDataItem>
+        <MetaDataItem>{points} {points > 1 ? 'points' : 'point'}</MetaDataItem>
         <MetaDataItem>{author}</MetaDataItem>
         <MetaDataItem>{distanceInWordsToNow(created_at)}</MetaDataItem>
-        <MetaDataItem>{num_comments} comments</MetaDataItem>
+        <MetaDataItem>{num_comments} {num_comments > 1 ? 'comments' : 'comment'}</MetaDataItem>
         <MetaDataItem className="desktop-only">
           <a href={url} target="_blank" rel="noopener noreferrer">
             ({url ? formatUrl(url) : 'no url available'})
@@ -46,7 +46,7 @@ const ResultItemArticle = props => {
 }
 
 ResultItemArticle.propTypes = {
-  article: PropTypes.object.isRequired
+  result: PropTypes.object.isRequired
 }
 
 export default ResultItemArticle

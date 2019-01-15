@@ -21,9 +21,9 @@ class SearchPage extends Component {
 
   render() {
     const {
-      articleList,
+      resultList,
       error,
-      currentArticlePage,
+      currentResultPage,
       currentSearch,
       isLoading,
       loadPageData
@@ -37,7 +37,7 @@ class SearchPage extends Component {
       return <Loading loadingText="Loading..." />
     }
 
-    if (articleList.length === 0) {
+    if (resultList.length === 0) {
       return (
         <ErrorMessage message="Sorry, no search result for this keyword..." />
       )
@@ -45,9 +45,9 @@ class SearchPage extends Component {
 
     return (
       <ResultWrapper>
-        <ResultList articleList={articleList} />
+        <ResultList resultList={resultList} />
         <Pagination
-          currentArticlePage={currentArticlePage}
+          currentResultPage={currentResultPage}
           currentSearch={currentSearch}
           loadPageData={loadPageData}
         />
@@ -58,17 +58,17 @@ class SearchPage extends Component {
 
 SearchPage.propTypes = {
   loadPageData: PropTypes.func.isRequired,
-  articleList: PropTypes.array.isRequired,
+  resultList: PropTypes.array.isRequired,
   error: PropTypes.object,
-  currentArticlePage: PropTypes.number.isRequired,
+  currentResultPage: PropTypes.number.isRequired,
   currentSearch: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = ({ header, searchPage }) => {
   return {
-    articleList: searchPage.articleList,
-    currentArticlePage: searchPage.currentArticlePage,
+    resultList: searchPage.resultList,
+    currentResultPage: searchPage.currentResultPage,
     currentSearch: header.currentSearch,
     isLoading: searchPage.isLoading,
     error: searchPage.error

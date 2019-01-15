@@ -1,8 +1,8 @@
 import {
-  UPDATE_ARTICLE_LIST,
-  UPDATE_ARTICLE_PAGE,
-  UPDATE_ARTICLE_LIST_START,
-  UPDATE_ARTICLE_LIST_FAIL
+  UPDATE_RESULT_LIST,
+  UPDATE_RESULT_PAGE,
+  UPDATE_RESULT_LIST_START,
+  UPDATE_RESULT_LIST_FAIL
 } from '../../../pages/search/searchPageActions'
 
 import searchReducer from '../../../pages/search/searchPageReducer'
@@ -12,10 +12,10 @@ describe('search reducer', () => {
 
   beforeEach(() => {
     initialState = {
-      articleList: [],
-      articlePerPage: 20,
-      currentArticlePage: 0,
-      articleCount: 0,
+      resultList: [],
+      resultPerPage: 20,
+      currentResultPage: 0,
+      resultCount: 0,
       processingTimeMS: 0,
       error: null,
       isLoading: false,
@@ -27,22 +27,22 @@ describe('search reducer', () => {
     expect(searchReducer(undefined, {})).toEqual(initialState)
   })
 
-  it('should handle UPDATE_ARTICLE_LIST action', () => {
+  it('should handle UPDATE_RESULT_LIST action', () => {
     const expectedState = {
       ...initialState,
-      articleCount: 1,
-      articleList: ['hi'],
-      articlePerPage: 20,
+      resultCount: 1,
+      resultList: ['hi'],
+      resultPerPage: 20,
       isLoading: false,
       processingTimeMS: 2,
       totalPage: 1
     }
 
     const state = searchReducer(initialState, {
-      type: UPDATE_ARTICLE_LIST,
-      articleCount: 1,
-      articleList: ['hi'],
-      articlePerPage: 20,
+      type: UPDATE_RESULT_LIST,
+      resultCount: 1,
+      resultList: ['hi'],
+      resultPerPage: 20,
       processingTimeMS: 2,
       totalPage: 1
     })
@@ -50,34 +50,34 @@ describe('search reducer', () => {
     expect(state).toEqual(expectedState)
   })
 
-  it('should handle UPDATE_ARTICLE_PAGE action', () => {
+  it('should handle UPDATE_RESULT_PAGE action', () => {
     const expectedState = {
       ...initialState,
-      currentArticlePage: 10
+      currentResultPage: 10
     }
 
     const state = searchReducer(initialState, {
-      type: UPDATE_ARTICLE_PAGE,
+      type: UPDATE_RESULT_PAGE,
       pageNum: 10
     })
 
     expect(state).toEqual(expectedState)
   })
 
-  it('should handle UPDATE_ARTICLE_LIST_START action', () => {
+  it('should handle UPDATE_RESULT_LIST_START action', () => {
     const expectedState = {
       ...initialState,
       isLoading: true
     }
 
     const state = searchReducer(initialState, {
-      type: UPDATE_ARTICLE_LIST_START
+      type: UPDATE_RESULT_LIST_START
     })
 
     expect(state).toEqual(expectedState)
   })
 
-  it('should handle UPDATE_ARTICLE_LIST_FAIL action', () => {
+  it('should handle UPDATE_RESULT_LIST_FAIL action', () => {
     const expectedState = {
       ...initialState,
       isLoading: false,
@@ -85,7 +85,7 @@ describe('search reducer', () => {
     }
 
     const state = searchReducer(initialState, {
-      type: UPDATE_ARTICLE_LIST_FAIL,
+      type: UPDATE_RESULT_LIST_FAIL,
       error: 'error'
     })
 

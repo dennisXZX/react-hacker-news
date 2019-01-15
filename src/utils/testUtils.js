@@ -12,10 +12,10 @@ export const mockInitialState = {
     totalPage: 1
   },
   searchPage: {
-    articleList: [],
-    articlePerPage: 20,
-    currentArticlePage: 0,
-    articleCount: 0,
+    resultList: [],
+    resultPerPage: 20,
+    currentResultPage: 0,
+    resultCount: 0,
     processingTimeMS: 0,
     error: null,
     isLoading: false,

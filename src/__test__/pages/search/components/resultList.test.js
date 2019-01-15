@@ -4,7 +4,7 @@ import ResultList from '../../../../pages/search/components/ResultList'
 import { mockResultList } from '../../../dataProviders/mockResultList'
 
 const defaultProps = {
-  articleList: mockResultList
+  resultList: mockResultList
 }
 
 const setup = (propsOverrides = {}) => {
@@ -12,8 +12,14 @@ const setup = (propsOverrides = {}) => {
   return shallow(<ResultList {...setupProps} />)
 }
 
-test('should render the result list correctly', () => {
+test('should render the article results correctly', () => {
   const wrapper = setup()
-  const component = wrapper.find('StoryItem')
-  expect(component.length).toBe(20)
+  const component = wrapper.find('ResultItemArticle')
+  expect(component.length).toBe(1)
+})
+
+test('should render the story results correctly', () => {
+  const wrapper = setup()
+  const component = wrapper.find('ResultItemStory')
+  expect(component.length).toBe(1)
 })

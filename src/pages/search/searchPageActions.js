@@ -2,46 +2,46 @@ import axios from 'axios'
 
 import { BASE_HACKER_NEWS_API } from '../../constants/apiURL'
 
-export const UPDATE_ARTICLE_LIST = 'Search@UPDATE_ARTICLE_LIST'
-export const UPDATE_ARTICLE_LIST_START = 'Search@UPDATE_ARTICLE_LIST_START'
-export const UPDATE_ARTICLE_LIST_FAIL = 'Search@UPDATE_ARTICLE_LIST_FAIL'
-export const UPDATE_ARTICLE_PAGE = 'Search@UPDATE_ARTICLE_PAGE'
+export const UPDATE_RESULT_LIST = 'Search@UPDATE_RESULT_LIST'
+export const UPDATE_RESULT_LIST_START = 'Search@UPDATE_RESULT_LIST_START'
+export const UPDATE_RESULT_LIST_FAIL = 'Search@UPDATE_RESULT_LIST_FAIL'
+export const UPDATE_RESULT_PAGE = 'Search@UPDATE_RESULT_PAGE'
 
-const updateArticleList = ({
-  articleList,
-  articleCount,
-  articlePerPage,
+const updateResultList = ({
+  resultList,
+  resultCount,
+  resultPerPage,
   processingTimeMS,
   totalPage
 }) => ({
-  type: UPDATE_ARTICLE_LIST,
-  articleList,
-  articleCount,
-  articlePerPage,
+  type: UPDATE_RESULT_LIST,
+  resultList,
+  resultCount,
+  resultPerPage,
   processingTimeMS,
   totalPage
 })
 
-const updateArticlePage = pageNum => ({
-  type: UPDATE_ARTICLE_PAGE,
+const updateResultPage = pageNum => ({
+  type: UPDATE_RESULT_PAGE,
   pageNum
 })
 
-const fetchArticleListStart = () => ({
-  type: UPDATE_ARTICLE_LIST_START
+const fetchResultListStart = () => ({
+  type: UPDATE_RESULT_LIST_START
 })
 
-const fetchArticleListFail = error => ({
-  type: UPDATE_ARTICLE_LIST_FAIL,
+const fetchResultListFail = error => ({
+  type: UPDATE_RESULT_LIST_FAIL,
   error
 })
 
-export const fetchArticleList = ({
+export const fetchResultList = ({
   dispatch,
   searchWord = '',
   pageNum = 0
 }) => {
-  dispatch(fetchArticleListStart())
+  dispatch(fetchResultListStart())
 
   axios
     .get(`${BASE_HACKER_NEWS_API}query=${searchWord}&page=${pageNum}`)
@@ -49,18 +49,18 @@ export const fetchArticleList = ({
       const { hits, nbPages, hitsPerPage, nbHits, processingTimeMS } = res.data
 
       const searchResult = {
-        articleList: hits,
-        articlePerPage: hitsPerPage,
+        resultList: hits,
+        resultPerPage: hitsPerPage,
         totalPage: nbPages,
-        articleCount: nbHits,
+        resultCount: nbHits,
         processingTimeMS
       }
 
-      dispatch(updateArticlePage(pageNum))
-      dispatch(updateArticleList(searchResult))
+      dispatch(updateResultPage(pageNum))
+      dispatch(updateResultList(searchResult))
     })
     .catch(err => {
-      dispatch(fetchArticleListFail(err))
+      dispatch(fetchResultListFail(err))
     })
 }
 
@@ -71,5 +71,5 @@ export const loadPageData = (searchWord = '', pageNum = 0) => dispatch => {
     pageNum
   }
 
-  fetchArticleList(queryParams)
+  fetchResultList(queryParams)
 }

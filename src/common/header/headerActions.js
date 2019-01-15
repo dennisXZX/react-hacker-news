@@ -3,7 +3,7 @@ import debounce from 'lodash.debounce'
 
 import { MOCK_HOT_SEARCH_API } from '../../constants/apiURL'
 
-import { fetchArticleList } from '../../pages/search/searchPageActions'
+import { fetchResultList } from '../../pages/search/searchPageActions'
 
 export const HOT_SEARCH_PER_PAGE = 7
 
@@ -50,7 +50,7 @@ export const getHotSearchList = () => dispatch => {
   })
 }
 
-const debounceFetchArticleList = debounce(fetchArticleList, 600)
+const debounceFetchResultList = debounce(fetchResultList, 600)
 
 const changeSearch = searchWord => dispatch => {
   dispatch({
@@ -63,7 +63,7 @@ const changeSearch = searchWord => dispatch => {
     searchWord
   }
 
-  debounceFetchArticleList(queryParams)
+  debounceFetchResultList(queryParams)
 }
 
 export const handleSearchFocus = hotSearchList => dispatch => {

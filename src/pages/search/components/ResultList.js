@@ -7,21 +7,21 @@ import ResultItemStory from './ResultItemStory'
 import { ResultListWrapper } from './resultListStyle'
 
 const ResultList = props => {
-  const { articleList } = props
+  const { resultList } = props
 
   return (
     <ResultListWrapper>
-      {articleList.map(article => (
-        article.title
-          ? (<ResultItemArticle key={article.objectID} article={article} />)
-          : (<ResultItemStory key={article.objectID} article={article} />)
+      {resultList.map(result => (
+        result.title
+          ? (<ResultItemArticle key={result.objectID} result={result} />)
+          : (<ResultItemStory key={result.objectID} result={result} />)
       ))}
     </ResultListWrapper>
   )
 }
 
 ResultList.propTypes = {
-  articleList: PropTypes.array.isRequired
+  resultList: PropTypes.array.isRequired
 }
 
 export default ResultList

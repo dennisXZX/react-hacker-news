@@ -22,7 +22,7 @@ import { HeaderWrapper, Nav } from './headerStyle'
 class Header extends Component {
   render() {
     const {
-      articleCount,
+      resultCount,
       currentHotSearchPage,
       currentSearch,
       isFocused,
@@ -60,7 +60,7 @@ class Header extends Component {
           />
         </Nav>
         <ResultCount
-          articleCount={articleCount}
+          resultCount={resultCount}
           processingTimeMS={processingTimeMS}
         />
       </HeaderWrapper>
@@ -69,7 +69,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  articleCount: PropTypes.number.isRequired,
+  resultCount: PropTypes.number.isRequired,
   currentHotSearchPage: PropTypes.number.isRequired,
   currentSearch: PropTypes.string.isRequired,
   isFocused: PropTypes.bool.isRequired,
@@ -88,7 +88,7 @@ Header.propTypes = {
 
 const mapStateToProps = ({ header, searchPage }) => {
   return {
-    articleCount: searchPage.articleCount,
+    resultCount: searchPage.resultCount,
     currentHotSearchPage: header.currentHotSearchPage,
     currentSearch: header.currentSearch,
     hotSearchList: header.hotSearchList,

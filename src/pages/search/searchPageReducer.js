@@ -1,56 +1,56 @@
 import {
-  UPDATE_ARTICLE_LIST,
-  UPDATE_ARTICLE_PAGE,
-  UPDATE_ARTICLE_LIST_START,
-  UPDATE_ARTICLE_LIST_FAIL
+  UPDATE_RESULT_LIST,
+  UPDATE_RESULT_PAGE,
+  UPDATE_RESULT_LIST_START,
+  UPDATE_RESULT_LIST_FAIL
 } from './searchPageActions'
 
 const defaultState = {
-  articleList: [],
-  articlePerPage: 20,
-  currentArticlePage: 0,
-  articleCount: 0,
+  resultList: [],
+  resultPerPage: 20,
+  currentResultPage: 0,
+  resultCount: 0,
   processingTimeMS: 0,
   error: null,
   isLoading: false,
   totalPage: 0
 }
 
-const updateArticleList = (state, action) => {
+const updateResultList = (state, action) => {
   const {
-    articleList,
-    articlePerPage,
+    resultList,
+    resultPerPage,
     totalPage,
-    articleCount,
+    resultCount,
     processingTimeMS
   } = action
 
   return {
     ...state,
-    articleCount,
-    articleList,
-    articlePerPage,
+    resultCount,
+    resultList,
+    resultPerPage,
     isLoading: false,
     processingTimeMS,
     totalPage
   }
 }
 
-const updateArticlePage = (state, { pageNum }) => {
+const updateResultPage = (state, { pageNum }) => {
   return {
     ...state,
-    currentArticlePage: pageNum
+    currentResultPage: pageNum
   }
 }
 
-const updateArticleListStart = state => {
+const updateResultListStart = state => {
   return {
     ...state,
     isLoading: true
   }
 }
 
-const updateArticleListFail = (state, { error }) => {
+const updateResultListFail = (state, { error }) => {
   return {
     ...state,
     isLoading: false,
@@ -60,14 +60,14 @@ const updateArticleListFail = (state, { error }) => {
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case UPDATE_ARTICLE_LIST:
-      return updateArticleList(state, action)
-    case UPDATE_ARTICLE_PAGE:
-      return updateArticlePage(state, action)
-    case UPDATE_ARTICLE_LIST_START:
-      return updateArticleListStart(state, action)
-    case UPDATE_ARTICLE_LIST_FAIL:
-      return updateArticleListFail(state, action)
+    case UPDATE_RESULT_LIST:
+      return updateResultList(state, action)
+    case UPDATE_RESULT_PAGE:
+      return updateResultPage(state, action)
+    case UPDATE_RESULT_LIST_START:
+      return updateResultListStart(state, action)
+    case UPDATE_RESULT_LIST_FAIL:
+      return updateResultListFail(state, action)
     default:
       return state
   }

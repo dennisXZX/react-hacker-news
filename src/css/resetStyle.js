@@ -14,7 +14,7 @@ const ResetStyle = createGlobalStyle`
   dl, dt, dd, ol, ul, li,
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
+  result, aside, canvas, details, embed, 
   figure, figcaption, footer, header, hgroup, 
   menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
@@ -27,7 +27,7 @@ const ResetStyle = createGlobalStyle`
   }
   
   /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
+  result, aside, details, figcaption, figure, 
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
