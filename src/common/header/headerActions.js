@@ -106,4 +106,5 @@ export const handleSearchChange = event => dispatch => {
 
 export const handleHotSearchClick = hotSearch => dispatch => {
   dispatch(changeSearch(hotSearch))
+  dispatch(hotSearchMouseLeave())
 }

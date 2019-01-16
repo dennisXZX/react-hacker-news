@@ -13,7 +13,7 @@ export const HotSearchWrapper = styled.div`
     box-shadow: 0 -5px 40px 0 rgba(236, 231, 231, 0.2),
       20px 10px 30px 30px rgba(236, 231, 231, 0.2);
     border-radius: 3px;
-    background-color: #fff;
+    background-color: rgba(255,255,255,0.91);
   }
 `
 
