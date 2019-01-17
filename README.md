@@ -16,7 +16,7 @@ This is a web application that contains the following main features:
 - Linting: `Eslint`
 - Testing: `Jest, Enzyme`
 - Build: `Create-React-App (Webpack)`
-- Deployment: `Heroku CLI`
+- Deployment: `Now`
 
 ## Development
 This project is using `yarn` for dependency management.  Make sure `yarn` is installed on your machine.
