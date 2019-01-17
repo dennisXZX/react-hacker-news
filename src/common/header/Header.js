@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Logo from './components/Logo'
@@ -99,20 +98,15 @@ const mapStateToProps = ({ header, searchPage }) => {
   }
 }
 
-export const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(
-    {
-      handleChangeHotSearchPage,
-      handleHotSearchMouseEnter,
-      handleHotSearchMouseLeave,
-      handleHotSearchClick,
-      handleSearchBlur,
-      handleSearchFocus,
-      handleSearchChange
-    },
-    dispatch
-  )
-})
+export const mapDispatchToProps = {
+  handleChangeHotSearchPage,
+  handleHotSearchMouseEnter,
+  handleHotSearchMouseLeave,
+  handleHotSearchClick,
+  handleSearchBlur,
+  handleSearchFocus,
+  handleSearchChange
+}
 
 export default connect(
   mapStateToProps,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import { HOT_SEARCH_PER_PAGE } from '../headerActions'
 
@@ -12,7 +12,7 @@ import {
 } from './hotSearchPanelStyle'
 import PropTypes from 'prop-types'
 
-class HotSearchPanel extends Component {
+class HotSearchPanel extends PureComponent {
   getCurrentPageItems = () => {
     const {
       currentHotSearchPage,

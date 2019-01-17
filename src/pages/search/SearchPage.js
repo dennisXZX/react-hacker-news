@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import ResultList from './components/ResultList'
@@ -75,14 +74,9 @@ const mapStateToProps = ({ header, searchPage }) => {
   }
 }
 
-export const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(
-    {
-      loadPageData
-    },
-    dispatch
-  )
-})
+export const mapDispatchToProps = {
+  loadPageData
+}
 
 export default connect(
   mapStateToProps,
