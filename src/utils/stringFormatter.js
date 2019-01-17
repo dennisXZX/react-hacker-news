@@ -1,4 +1,4 @@
-const URL_MAX_LENGTH = 120
+const URL_MAX_LENGTH = 85
 
 export const formatNumWithComma = num => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')

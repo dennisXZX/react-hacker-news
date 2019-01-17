@@ -2,7 +2,7 @@
 
 The aim of this project is to build an app searching hacker stories through [HN Search API](https://hn.algolia.com/api).
 
-This project is deployed [here](https://hacker-news-didumjdfoc.now.sh).
+This project is deployed [here](https://hacker-news-xtdopepswa.now.sh).
 
 ## Functionality
 This is a web application that contains the following main features:
