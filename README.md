@@ -2,7 +2,7 @@
 
 The aim of this project is to build an app searching hacker stories through [HN Search API](https://hn.algolia.com/api).
 
-This project is deployed [here](https://hacker-news-wcdwalkczc.now.sh).
+This project is deployed [here](https://hacker-news-didumjdfoc.now.sh).
 
 ## Functionality
 This is a web application that contains the following main features:
@@ -52,9 +52,9 @@ I have assumed that all data provided by HN Search API is sanitised. As the app 
 ## Considerations
 I only use page-level components to talk to the store, while keeping all other components dumb. In this way, most of the components in this app are only responsible for rendering UI, thus the data flow is easy to reason about and manage. 
 
-I deliberately remove the search button from the app, instead, I use instant search feature to provide a smoother experience. The API call is debounced in order to reduce burden on the backend.
+I deliberately remove the search button from the app, instead, I use instant search feature to provide a smoother experience. The API call is debounced in order to provider better user experience and reduce burden on the backend.
 
-The API would provide article or story in the same data set. I separate them into two distinct React components. The rationale behind this is we might differentiate them further in the future, so separating them from the beginning would make it more flexible.
+The API would provide article or story in the same data set. I separate them into two distinct React components. The rationale behind this is we might differentiate them further in the future, so separating them from the beginning would make them more flexible.
 
 The API would come back with no search result for certain keywords, which need to be handled properly. 
 
@@ -69,7 +69,7 @@ Some website URLs coming back from API would be extremely long, which would caus
 
 - Search history feature could be provided.
 
-- Routing could be handled better (like 404 page). There is no safeguard on routing at the moment.
+- Routing could be handled better (like 404 page). There is no handling on routing at the moment.
 
 - Error occurred during data fetching could be handled more elegantly. Currently the app only provides limited error handling (showing a simple error message)
 
