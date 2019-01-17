@@ -31,6 +31,7 @@ class ResultItemArticle extends PureComponent {
           rel="noopener noreferrer"
           dangerouslySetInnerHTML={{ __html: _highlightResult.title.value }}
         />
+
         <MetaDataWrapper>
           <MetaDataItem>{points} {points > 1 ? 'points' : 'point'}</MetaDataItem>
           <MetaDataItem>{author}</MetaDataItem>

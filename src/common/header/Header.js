@@ -21,11 +21,8 @@ import { HeaderWrapper, Nav } from './headerStyle'
 class Header extends Component {
   render() {
     const {
-      resultCount,
       currentHotSearchPage,
       currentSearch,
-      isFocused,
-      isHotSearchMouseIn,
       handleChangeHotSearchPage,
       handleHotSearchMouseEnter,
       handleHotSearchMouseLeave,
@@ -34,7 +31,10 @@ class Header extends Component {
       handleSearchBlur,
       handleSearchChange,
       hotSearchList,
+      isFocused,
+      isHotSearchMouseIn,
       processingTimeMS,
+      resultCount,
       totalPage
     } = this.props
 
@@ -59,8 +59,8 @@ class Header extends Component {
           />
         </Nav>
         <ResultCount
-          resultCount={resultCount}
           processingTimeMS={processingTimeMS}
+          resultCount={resultCount}
         />
       </HeaderWrapper>
     )
@@ -68,7 +68,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  resultCount: PropTypes.number.isRequired,
   currentHotSearchPage: PropTypes.number.isRequired,
   currentSearch: PropTypes.string.isRequired,
   isFocused: PropTypes.bool.isRequired,
@@ -82,18 +81,19 @@ Header.propTypes = {
   handleSearchChange: PropTypes.func.isRequired,
   hotSearchList: PropTypes.array.isRequired,
   processingTimeMS: PropTypes.number.isRequired,
+  resultCount: PropTypes.number.isRequired,
   totalPage: PropTypes.number.isRequired
 }
 
 const mapStateToProps = ({ header, searchPage }) => {
   return {
-    resultCount: searchPage.resultCount,
     currentHotSearchPage: header.currentHotSearchPage,
     currentSearch: header.currentSearch,
     hotSearchList: header.hotSearchList,
     isFocused: header.isFocused,
     isHotSearchMouseIn: header.isHotSearchMouseIn,
     processingTimeMS: searchPage.processingTimeMS,
+    resultCount: searchPage.resultCount,
     totalPage: header.totalPage
   }
 }

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { BASE_HACKER_NEWS_API } from '../../constants/apiURL'
+import { BASE_HACKER_NEWS_API } from '../../constants/apiURLs'
 
 export const UPDATE_RESULT_LIST = 'Search@UPDATE_RESULT_LIST'
 export const UPDATE_RESULT_LIST_START = 'Search@UPDATE_RESULT_LIST_START'
@@ -31,6 +31,11 @@ const fetchResultListStart = () => ({
   type: UPDATE_RESULT_LIST_START
 })
 
+const fetchResultListSuccess = (pageNum, searchResult) => dispatch => {
+  dispatch(updateResultPage(pageNum))
+  dispatch(updateResultList(searchResult))
+}
+
 const fetchResultListFail = error => ({
   type: UPDATE_RESULT_LIST_FAIL,
   error
@@ -46,7 +51,13 @@ export const fetchResultList = ({
   axios
     .get(`${BASE_HACKER_NEWS_API}query=${searchWord}&page=${pageNum}`)
     .then(res => {
-      const { hits, nbPages, hitsPerPage, nbHits, processingTimeMS } = res.data
+      const {
+        hits,
+        hitsPerPage,
+        nbPages,
+        nbHits,
+        processingTimeMS
+      } = res.data
 
       const searchResult = {
         resultList: hits,
@@ -56,8 +67,7 @@ export const fetchResultList = ({
         processingTimeMS
       }
 
-      dispatch(updateResultPage(pageNum))
-      dispatch(updateResultList(searchResult))
+      dispatch(fetchResultListSuccess(pageNum, searchResult))
     })
     .catch(err => {
       dispatch(fetchResultListFail(err))

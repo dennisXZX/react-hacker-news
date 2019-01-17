@@ -8,7 +8,6 @@ import Loading from '../../UI/loading/LoadingSpinner'
 import ErrorMessage from '../../UI/error/ErrorMessage'
 
 import { loadPageData } from './searchPageActions'
-
 import { ResultWrapper } from './searchPageStyle'
 
 class SearchPage extends Component {
@@ -20,12 +19,12 @@ class SearchPage extends Component {
 
   render() {
     const {
-      resultList,
-      error,
       currentResultPage,
       currentSearch,
+      error,
       isLoading,
-      loadPageData
+      loadPageData,
+      resultList
     } = this.props
 
     if (error) {
@@ -56,21 +55,21 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  loadPageData: PropTypes.func.isRequired,
-  resultList: PropTypes.array.isRequired,
-  error: PropTypes.object,
   currentResultPage: PropTypes.number.isRequired,
   currentSearch: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool.isRequired
+  error: PropTypes.object,
+  isLoading: PropTypes.bool.isRequired,
+  loadPageData: PropTypes.func.isRequired,
+  resultList: PropTypes.array.isRequired
 }
 
 const mapStateToProps = ({ header, searchPage }) => {
   return {
-    resultList: searchPage.resultList,
     currentResultPage: searchPage.currentResultPage,
     currentSearch: header.currentSearch,
+    error: searchPage.error,
     isLoading: searchPage.isLoading,
-    error: searchPage.error
+    resultList: searchPage.resultList
   }
 }
 

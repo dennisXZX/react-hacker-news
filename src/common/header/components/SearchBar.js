@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 import HotSearchPanel from './HotSearchPanel'
 
-import { NavSearch, SearchWrapper } from './searchBarStyle'
 import PropTypes from 'prop-types'
+import { NavSearch, SearchWrapper } from './searchBarStyle'
 
 class SearchBar extends Component {
   getListArea = () => {
@@ -22,13 +22,13 @@ class SearchBar extends Component {
     if (isFocused || isHotSearchMouseIn) {
       return (
         <HotSearchPanel
+          currentHotSearchPage={currentHotSearchPage}
           handleHotSearchMouseEnter={handleHotSearchMouseEnter}
           handleHotSearchMouseLeave={handleHotSearchMouseLeave}
           handleChangeHotSearchPage={handleChangeHotSearchPage}
           handleHotSearchClick={handleHotSearchClick}
-          currentHotSearchPage={currentHotSearchPage}
-          totalPage={totalPage}
           hotSearchList={hotSearchList}
+          totalPage={totalPage}
         />
       )
     } else {

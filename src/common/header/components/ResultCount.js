@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import { formatNumWithComma } from '../../../utils/stringFormatter'
-
 import { ResultCountWrapper } from './resultCountStyle'
+import { formatNumWithComma } from '../../../utils/stringFormatter'
 
 class ResultCount extends PureComponent {
   render () {

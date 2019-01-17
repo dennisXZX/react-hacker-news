@@ -4,10 +4,7 @@ import rootReducer from './rootReducer'
 
 export const middlewares = [applyMiddleware(thunk)]
 
-if (
-  process.env.NODE_ENV !== 'production' &&
-  window.__REDUX_DEVTOOLS_EXTENSION__
-) {
+if (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION__) {
   middlewares.push(window.__REDUX_DEVTOOLS_EXTENSION__())
 }
 

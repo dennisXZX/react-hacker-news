@@ -1,8 +1,7 @@
 import axios from 'axios'
 import debounce from 'lodash.debounce'
 
-import { MOCK_HOT_SEARCH_API } from '../../constants/apiURL'
-
+import { MOCK_HOT_SEARCH_API } from '../../constants/apiURLs'
 import { fetchResultList } from '../../pages/search/searchPageActions'
 
 export const HOT_SEARCH_PER_PAGE = 7
@@ -43,11 +42,13 @@ const changeHotSearchPage = newHotSearchPage => ({
 })
 
 export const getHotSearchList = () => dispatch => {
-  return axios.get(MOCK_HOT_SEARCH_API).then(res => {
-    const hotSearchList = res.data.hotSearchList
+  return axios
+    .get(MOCK_HOT_SEARCH_API)
+    .then(res => {
+      const hotSearchList = res.data.hotSearchList
 
-    dispatch(updateHotSearchList(hotSearchList))
-  })
+      dispatch(updateHotSearchList(hotSearchList))
+    })
 }
 
 const debounceFetchResultList = debounce(fetchResultList, 600)

@@ -59,14 +59,11 @@ class HotSearchPanel extends PureComponent {
                 currentHotSearchPage,
                 totalPage,
                 this.spinIcon
-              )
-            }
+              )}
           >
             <i
               className="iconfont spin"
-              ref={icon => {
-                this.spinIcon = icon
-              }}
+              ref={icon => { this.spinIcon = icon }}
             >
               &#xe851;
             </i>
